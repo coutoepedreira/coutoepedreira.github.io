@@ -2,331 +2,771 @@
 <html lang="pt-BR">
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<title>
-  Manifesto | Couto &amp; Pedreira
-</title>
+  <title>Manifesto | Couto &amp; Pedreira</title>
 
-<meta
-  name="description"
-  content="Manifesto da Couto & Pedreira sobre advocacia, Direito, ciência, linguagem e transformação social."
->
+  <meta
+    name="description"
+    content="Manifesto da Couto & Pedreira sobre advocacia, Direito, ciência, linguagem e transformação social."
+  >
 
-<meta
-  name="author"
-  content="Couto &amp; Pedreira Advocacia Consultiva"
->
+  <meta
+    name="author"
+    content="Couto &amp; Pedreira Advocacia Consultiva"
+  >
 
-<link
-  rel="canonical"
-  href="https://coutoepedreira.github.io/manifesto.html"
->
+  <link
+    rel="canonical"
+    href="https://coutoepedreira.github.io/manifesto.html"
+  >
 
-<meta name="robots" content="index,follow">
+  <meta name="robots" content="index,follow">
 
-<link
-  rel="preconnect"
-  href="https://fonts.googleapis.com"
->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin
->
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
-<link
-  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
-  rel="stylesheet"
->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
+    rel="stylesheet"
+  >
 
-<link
-  rel="stylesheet"
-  href="css/style.css"
->
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       MANIFESTO
+       Ajustes exclusivos desta página.
+       O style.css global permanece intacto.
+       ===================================================== */
+
+    .manifesto-page {
+      text-align: left;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       Coluna centralizada, mas texto alinhado à esquerda.
+       ----------------------------------------------------- */
+
+    .manifesto-page .internal-hero {
+      width: min(860px, 100%);
+      margin: 150px auto 125px;
+      text-align: left;
+    }
+
+    .manifesto-page .internal-hero .micro {
+      margin-bottom: 28px;
+    }
+
+    .manifesto-page .internal-hero h1 {
+      max-width: 820px;
+      margin: 0;
+      font-family: "Newsreader", serif;
+      font-size: clamp(58px, 8vw, 112px);
+      font-weight: 400;
+      line-height: 0.94;
+      letter-spacing: -0.045em;
+    }
+
+    .manifesto-page .internal-dek {
+      max-width: 680px;
+      margin: 40px 0 0;
+      font-family: "Newsreader", serif;
+      font-size: clamp(22px, 2.4vw, 31px);
+      line-height: 1.38;
+    }
+
+
+    /* -----------------------------------------------------
+       CORPO DO MANIFESTO
+       ----------------------------------------------------- */
+
+    .manifesto-page .internal-section {
+      padding-bottom: 0;
+    }
+
+    .manifesto-page .section-rule {
+      margin-bottom: 92px;
+    }
+
+    .manifesto-page .internal-content {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .manifesto-page .internal-content p {
+      margin: 0 0 30px;
+      font-family: "Newsreader", serif;
+      font-size: 21px;
+      line-height: 1.68;
+    }
+
+
+    /* -----------------------------------------------------
+       PRIMEIRO BLOCO
+       ----------------------------------------------------- */
+
+    .manifesto-page .manifesto-block {
+      width: 100%;
+    }
+
+    .manifesto-page .manifesto-opening {
+      margin: 0 0 70px;
+      padding: 0 0 72px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .manifesto-page .manifesto-opening p {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+    }
+
+
+    /* -----------------------------------------------------
+       IMAGEM PRINCIPAL
+       ----------------------------------------------------- */
+
+    .manifesto-page .manifesto-image-wide {
+      width: 100%;
+      margin: 105px 0 105px;
+    }
+
+    .manifesto-page .manifesto-image-wide img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+
+    /* -----------------------------------------------------
+       DUAS IMAGENS VERTICAIS
+       ----------------------------------------------------- */
+
+    .manifesto-page .manifesto-image-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 44px;
+      align-items: start;
+
+      width: calc(100vw - 48px);
+      max-width: 1160px;
+      margin: 0 auto 115px;
+      transform: translateX(calc((760px - 100vw + 48px) / 2));
+    }
+
+    .manifesto-page .manifesto-image-grid figure {
+      margin: 0;
+    }
+
+    .manifesto-page .manifesto-image-grid img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .manifesto-page .manifesto-image-grid figure:first-child {
+      padding-top: 68px;
+    }
+
+
+    /* -----------------------------------------------------
+       SEGUNDO BLOCO
+       ----------------------------------------------------- */
+
+    .manifesto-page .manifesto-principle {
+      margin: 80px 0 82px;
+      padding: 45px 0;
+
+      border-top: 1px solid var(--line-light);
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .manifesto-page .manifesto-principle p {
+      margin: 0;
+
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+
+    /* -----------------------------------------------------
+       FECHO
+       ----------------------------------------------------- */
+
+    .manifesto-page .manifesto-final {
+      margin-top: 84px;
+      padding-top: 72px;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .manifesto-page .manifesto-final p {
+      margin-bottom: 28px;
+    }
+
+    .manifesto-page .manifesto-final p:last-child {
+      margin-top: 56px;
+      margin-bottom: 0;
+
+      font-size: clamp(28px, 3.6vw, 43px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .manifesto-page strong {
+      font-weight: 500;
+    }
+
+
+    /* -----------------------------------------------------
+       RESPONSIVO
+       ----------------------------------------------------- */
+
+    @media (max-width: 900px) {
+
+      .manifesto-page .manifesto-image-grid {
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto 100px;
+        transform: none;
+      }
+
+    }
+
+
+    @media (max-width: 760px) {
+
+      .manifesto-page .internal-hero {
+        width: 100%;
+        margin: 105px auto 90px;
+      }
+
+      .manifesto-page .internal-hero h1 {
+        font-size: clamp(50px, 14vw, 78px);
+      }
+
+      .manifesto-page .internal-dek {
+        margin-top: 30px;
+        font-size: 22px;
+      }
+
+      .manifesto-page .section-rule {
+        margin-bottom: 60px;
+      }
+
+      .manifesto-page .internal-content {
+        width: 100%;
+      }
+
+      .manifesto-page .internal-content p {
+        font-size: 19px;
+        line-height: 1.63;
+        margin-bottom: 26px;
+      }
+
+      .manifesto-page .manifesto-opening {
+        margin-bottom: 55px;
+        padding-bottom: 55px;
+      }
+
+      .manifesto-page .manifesto-opening p {
+        font-size: 31px;
+      }
+
+      .manifesto-page .manifesto-image-wide {
+        margin: 80px 0 80px;
+      }
+
+      .manifesto-page .manifesto-image-wide img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .manifesto-page .manifesto-image-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+
+        width: 100%;
+        margin-bottom: 75px;
+      }
+
+      .manifesto-page .manifesto-image-grid figure:first-child {
+        padding-top: 35px;
+      }
+
+      .manifesto-page .manifesto-principle {
+        margin: 58px 0 62px;
+        padding: 35px 0;
+      }
+
+      .manifesto-page .manifesto-principle p {
+        font-size: 34px;
+      }
+
+      .manifesto-page .manifesto-final {
+        margin-top: 65px;
+        padding-top: 55px;
+      }
+
+      .manifesto-page .manifesto-final p:last-child {
+        margin-top: 42px;
+        font-size: 30px;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .manifesto-page .manifesto-image-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .manifesto-page .manifesto-image-grid figure:first-child {
+        padding-top: 0;
+      }
+
+      .manifesto-page .manifesto-image-grid figure:last-child {
+        width: 82%;
+        margin-left: auto;
+      }
+
+    }
+
+  </style>
 
 </head>
 
 
-<body>
+<body class="manifesto-page">
 
-<header class="site-header site-shell">
 
-<div class="masthead">
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
 
-<a
-  class="brand-name"
-  href="index.html"
->
-  COUTO &amp; PEDREIRA
-</a>
+  <header class="site-header site-shell">
 
-<p class="brand-subtitle">
-  Advocacia Consultiva
-</p>
+    <div class="masthead">
 
-</div>
+      <a
+        class="brand-name"
+        href="index.html"
+      >
+        COUTO &amp; PEDREIRA
+      </a>
 
-<div class="masthead-rule"></div>
+      <p class="brand-subtitle">
+        Advocacia Consultiva
+      </p>
 
-<div class="nav-row">
+    </div>
 
-<nav class="nav">
 
-<a href="index.html">
-  Início
-</a>
+    <div class="masthead-rule"></div>
 
-<a href="biblioteca.html">
-  Biblioteca
-</a>
 
-<a href="edicoes.html">
-  Edições
-</a>
+    <div class="nav-row">
 
-<a href="index.html#escritorio">
-  Escritório
-</a>
+      <nav
+        class="nav"
+        aria-label="Navegação principal"
+      >
 
-<a
-  href="https://www.instagram.com/coutoepedreira/"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Instagram
-</a>
+        <a href="biblioteca.html">
+          Biblioteca
+        </a>
 
-</nav>
+        <a href="edicoes.html">
+          Edições
+        </a>
 
-</div>
+        <a href="index.html#escritorio">
+          Escritório
+        </a>
 
-</header>
+        <a href="index.html#autores">
+          Autores
+        </a>
 
+        <a
+          href="manifesto.html"
+          style="color: var(--terracotta);"
+        >
+          Manifesto
+        </a>
 
-<main class="site-shell">
+        <a
+          href="https://www.instagram.com/coutoepedreira/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
 
+      </nav>
 
-<section class="internal-hero">
+    </div>
 
-<p class="micro">
-  Manifesto
-</p>
+  </header>
 
-<h1>
-  O Direito entre<br>
-  o texto e a vida.
-</h1>
 
-<p class="internal-dek">
-  Acreditamos que o Direito é uma ferramenta social
-  capaz de transformar vidas, desde que tratado com
-  responsabilidade, ciência, linguagem e atenção
-  ao caso concreto.
-</p>
+  <!-- =====================================================
+       CONTEÚDO
+       ===================================================== -->
 
-</section>
+  <main class="site-shell">
 
 
-<section class="page-section internal-section">
+    <!-- HERO -->
 
-<div class="section-rule">
+    <section class="internal-hero">
 
-<span class="micro">
-  Manifesto
-</span>
+      <p class="micro">
+        Manifesto
+      </p>
 
-<span class="micro">
-  Couto &amp; Pedreira
-</span>
+      <h1>
+        O Direito entre<br>
+        o texto e a vida.
+      </h1>
 
-</div>
+      <p class="internal-dek">
+        Acreditamos que o Direito é uma ferramenta social
+        capaz de transformar vidas, desde que tratado com
+        responsabilidade, ciência, linguagem e atenção
+        ao caso concreto.
+      </p>
 
+    </section>
 
-<article class="internal-content">
 
+    <!-- MANIFESTO -->
 
-<p class="pullquote">
-  Entre o que está escrito e o que precisa ser feito,
-  existe um mundo. É nele que trabalhamos.
-</p>
-
-
-<p>
-  A palavra <em>advocacia</em> carrega uma ideia antiga
-  e simples: chamar alguém em auxílio. O advogado é
-  aquele que é chamado para estar ao lado de outra pessoa
-  quando a linguagem cotidiana já não basta e é preciso
-  transformar uma experiência, um interesse ou um conflito
-  em uma questão juridicamente compreensível.
-</p>
-
-
-<p>
-  É essa dimensão humana que queremos preservar.
-  Não defendemos apenas direitos em abstrato.
-  Defendemos, sobretudo, <strong>interesses dignos</strong>
-  de quem nos procura. O Direito importa porque toca
-  patrimônio, liberdade, família, trabalho, escolhas
-  e projetos de vida.
-</p>
+    <section class="page-section internal-section">
 
 
-<p>
-  Por isso, entendemos a advocacia como uma atividade
-  de responsabilidade. Escutar antes de responder.
-  Compreender antes de argumentar.
-  Pesquisar antes de concluir.
-</p>
+      <div class="section-rule">
 
+        <span class="micro">
+          Manifesto
+        </span>
 
-<p>
-  Não acreditamos em respostas jurídicas produzidas
-  por automatismo. Uma norma não dispensa interpretação.
-  Um precedente não elimina a necessidade de compreender
-  os fatos. Uma decisão judicial não encerra, por si só,
-  a investigação sobre o problema.
-</p>
+        <span class="micro">
+          Couto &amp; Pedreira
+        </span>
 
+      </div>
 
-<p>
-  Tratamos o Direito como uma prática social interpretativa.
-  A decisão judicial é uma decisão institucional do Estado
-  e, como tal, possui uma dimensão política: ela define,
-  no caso concreto, quais sentidos jurídicos prevalecem
-  e quais consequências serão produzidas. Isso não transforma
-  o Direito em mero exercício de vontade. Ao contrário:
-  torna ainda mais importante a fundamentação, a coerência,
-  a integridade e a responsabilidade argumentativa.
-</p>
 
+      <article class="internal-content">
 
-<p>
-  É no caso concreto, limitado e singular, que uma ideia
-  de justiça pode ganhar forma jurídica. Não uma promessa
-  de justiça absoluta, mas a busca rigorosa pela resposta
-  que melhor se sustente diante da Constituição, da legislação,
-  dos fatos, das provas e das razões apresentadas.
-</p>
 
+        <!-- =================================================
+             BLOCO I
+             ================================================= -->
 
-<p>
-  Por isso, acreditamos na ciência como parte do ofício.
-  Estudamos teoria da argumentação, construção de teses,
-  interpretação, jurisprudência, dados e evidências porque
-  uma boa posição jurídica não deve depender apenas de retórica.
-  Ela deve poder ser examinada, criticada, confrontada
-  e aperfeiçoada.
-</p>
+        <div class="manifesto-block manifesto-block-one">
 
 
-<p>
-  Também acreditamos que a linguagem não é acabamento.
-  Ela é parte da própria construção do Direito.
-  Uma ideia mal formulada pode esconder um problema.
-  Uma distinção mal feita pode produzir uma conclusão errada.
-  Uma narrativa mal organizada pode impedir que um fato
-  seja juridicamente percebido.
-</p>
+          <div class="manifesto-opening">
 
+            <p>
+              Entre o que está escrito e o que precisa ser feito,
+              existe um mundo. É nele que trabalhamos.
+            </p>
 
-<p>
-  É por isso que escrevemos.
-  E é por isso que pensamos a comunicação como parte do trabalho.
-</p>
+          </div>
 
 
-<p>
-  Queremos falar com rigor sem transformar o rigor
-  em obscuridade. Queremos escrever textos densos
-  sem desperdiçar palavras. Queremos que a complexidade
-  permaneça complexa onde precisa permanecer, mas que
-  o caminho até ela seja claro.
-</p>
+          <p>
+            A palavra <em>advocacia</em> carrega uma ideia antiga
+            e simples: chamar alguém em auxílio. O advogado é
+            aquele que é chamado para estar ao lado de outra pessoa
+            quando a linguagem cotidiana já não basta e é preciso
+            transformar uma experiência, um interesse ou um conflito
+            em uma questão juridicamente compreensível.
+          </p>
 
 
-<div class="pullquote">
-  Não simplificar o pensamento.
-  Simplificar o caminho até ele.
-</div>
+          <p>
+            É essa dimensão humana que queremos preservar.
+            Não defendemos apenas direitos em abstrato.
+            Defendemos, sobretudo, <strong>interesses dignos</strong>
+            de quem nos procura. O Direito importa porque toca
+            patrimônio, liberdade, família, trabalho, escolhas
+            e projetos de vida.
+          </p>
 
 
-<p>
-  A Couto &amp; Pedreira nasce desse compromisso:
-  levar a sério a pessoa, o problema, o Direito
-  e as consequências.
-</p>
+          <p>
+            Por isso, entendemos a advocacia como uma atividade
+            de responsabilidade. Escutar antes de responder.
+            Compreender antes de argumentar. Pesquisar antes
+            de concluir.
+          </p>
 
 
-<p>
-  O resto começa quando abrimos o caso
-  e começamos a escutar.
-</p>
+          <p>
+            Não acreditamos em respostas jurídicas produzidas
+            por automatismo. Uma norma não dispensa interpretação.
+            Um precedente não elimina a necessidade de compreender
+            os fatos. Uma decisão judicial não encerra, por si só,
+            a investigação sobre o problema.
+          </p>
 
 
-</article>
+          <p>
+            Tratamos o Direito como uma prática social interpretativa.
+            A decisão judicial é uma decisão institucional do Estado
+            e, como tal, possui uma dimensão política: ela define,
+            no caso concreto, quais sentidos jurídicos prevalecem
+            e quais consequências serão produzidas. Isso não transforma
+            o Direito em mero exercício de vontade. Ao contrário:
+            torna ainda mais importante a fundamentação, a coerência,
+            a integridade e a responsabilidade argumentativa.
+          </p>
 
-</section>
 
-</main>
+          <p>
+            É no caso concreto, limitado e singular, que uma ideia
+            de justiça pode ganhar forma jurídica. Não uma promessa
+            de justiça absoluta, mas a busca rigorosa pela resposta
+            que melhor se sustente diante da Constituição, da legislação,
+            dos fatos, das provas e das razões apresentadas.
+          </p>
 
 
-<footer class="site-footer">
+          <p>
+            Por isso, acreditamos na ciência como parte do ofício.
+            Estudamos teoria da argumentação, construção de teses,
+            interpretação, jurisprudência, dados e evidências porque
+            uma boa posição jurídica não deve depender apenas de retórica.
+            Ela deve poder ser examinada, criticada, confrontada
+            e aperfeiçoada.
+          </p>
 
-<div class="footer-inner">
+        </div>
 
-<p class="footer-brand-name">
-  COUTO &amp; PEDREIRA
-</p>
 
-<p class="footer-brand-type">
-  Advocacia Consultiva
-</p>
+        <!-- =================================================
+             IMAGEM PRINCIPAL
+             ================================================= -->
 
-<p class="footer-quote">
-  Entre o que está escrito e o que precisa ser feito,
-  existe um mundo. É nele que trabalhamos.
-</p>
+        <div class="manifesto-image-wide">
 
-<a
-  class="footer-instagram"
-  href="https://www.instagram.com/coutoepedreira/"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  @coutoepedreira
-</a>
+          <img
+            src="assets/manifesto-01.jpg"
+            alt="Corredor de arquitetura contemporânea atravessado por luz e sombra."
+            loading="lazy"
+            decoding="async"
+          >
 
-<nav class="footer-links">
+        </div>
 
-<a href="biblioteca.html">Biblioteca</a>
-<a href="edicoes.html">Edições</a>
-<a href="manifesto.html">Manifesto</a>
-<a href="metodologia.html">Metodologia</a>
-<a href="termos.html">Termos de Uso</a>
-<a href="privacidade.html">Política de Privacidade</a>
 
-</nav>
+        <!-- =================================================
+             DUAS IMAGENS DE PAUSA
+             ================================================= -->
 
-<div class="footer-bottom">
+        <div class="manifesto-image-grid">
 
-<span>
-  © 2026 Couto &amp; Pedreira
-</span>
+          <figure>
 
-</span>
+            <img
+              src="assets/manifesto-02.jpg"
+              alt="Pessoa sentada diante de uma janela em um ambiente silencioso."
+              loading="lazy"
+              decoding="async"
+            >
 
-</div>
+          </figure>
 
-</div>
 
-</footer>
+          <figure>
+
+            <img
+              src="assets/manifesto-03.jpg"
+              alt="Colunas arquitetônicas formando uma sequência de luz, sombra e perspectiva."
+              loading="lazy"
+              decoding="async"
+            >
+
+          </figure>
+
+        </div>
+
+
+        <!-- =================================================
+             BLOCO II
+             ================================================= -->
+
+        <div class="manifesto-block manifesto-block-two">
+
+
+          <p>
+            Também acreditamos que a linguagem não é acabamento.
+            Ela é parte da própria construção do Direito.
+            Uma ideia mal formulada pode esconder um problema.
+            Uma distinção mal feita pode produzir uma conclusão errada.
+            Uma narrativa mal organizada pode impedir que um fato
+            seja juridicamente percebido.
+          </p>
+
+
+          <p>
+            É por isso que escrevemos.
+            E é por isso que pensamos a comunicação como parte do trabalho.
+          </p>
+
+
+          <p>
+            Queremos falar com rigor sem transformar o rigor
+            em obscuridade. Queremos escrever textos densos
+            sem desperdiçar palavras. Queremos que a complexidade
+            permaneça complexa onde precisa permanecer, mas que
+            o caminho até ela seja claro.
+          </p>
+
+
+          <div class="manifesto-principle">
+
+            <p>
+              Não simplificar o pensamento.<br>
+              Simplificar o caminho até ele.
+            </p>
+
+          </div>
+
+
+          <div class="manifesto-final">
+
+            <p>
+              A Couto &amp; Pedreira nasce desse compromisso:
+              levar a sério a pessoa, o problema, o Direito
+              e as consequências.
+            </p>
+
+
+            <p>
+              O resto começa quando abrimos o caso
+              e começamos a escutar.
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+      </article>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       PADRÃO DO INDEX
+       ===================================================== -->
+
+  <footer class="site-footer">
+
+    <div class="footer-brand">
+
+      <div class="footer-name">
+        COUTO &amp; PEDREIRA
+      </div>
+
+      <div class="footer-descriptor">
+        Advocacia Consultiva
+      </div>
+
+    </div>
+
+
+    <div class="footer-quote">
+      Entre o que está escrito e o que precisa ser feito,
+      existe um mundo. É nele que trabalhamos.
+    </div>
+
+
+    <a
+      href="https://www.instagram.com/coutoepedreira/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="footer-instagram"
+    >
+      @coutoepedreira
+    </a>
+
+
+    <nav
+      class="footer-nav"
+      aria-label="Navegação institucional"
+    >
+
+      <a href="biblioteca.html">
+        Biblioteca
+      </a>
+
+      <a href="edicoes.html">
+        Edições
+      </a>
+
+      <a href="manifesto.html">
+        Manifesto
+      </a>
+
+      <a href="metodologia.html">
+        Metodologia
+      </a>
+
+      <a href="termos.html">
+        Termos de Uso
+      </a>
+
+      <a href="privacidade.html">
+        Política de Privacidade
+      </a>
+
+    </nav>
+
+
+    <div class="footer-copyright">
+      © 2026 Couto &amp; Pedreira
+    </div>
+
+  </footer>
+
 
 </body>
 </html>
