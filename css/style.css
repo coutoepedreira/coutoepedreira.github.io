@@ -1180,6 +1180,10 @@ h3 {
 
     justify-content: center;
 
+    align-items: center;
+
+    text-align: center;
+
     gap: 20px;
 
     flex-wrap: wrap;
@@ -1256,11 +1260,6 @@ h3 {
     .edition-image {
         width:
             min(100%, 760px);
-    }
-
-
-    .footer-grid {
-        grid-template-columns: 1fr;
     }
 
 }
@@ -1399,11 +1398,7 @@ h3 {
     }
 
 
-    .author-copy
-    p:not(.micro)
-    :not(.author-role)
-    :not(.author-signature) {
-
+    .author-copy p:not(.micro):not(.author-role):not(.author-signature) {
         font-size: 16px;
     }
 
