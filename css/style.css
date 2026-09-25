@@ -1,1479 +1,1325 @@
+/* =========================================================
+   COUTO & PEDREIRA
+   Advocacia Consultiva
+   Sistema visual
+   ========================================================= */
+
+
+/* =========================================================
+   01. VARIÁVEIS
+   ========================================================= */
+
 :root {
-    --ice: #EFEAE6;
-    --deep: #1B2B29;
-    --green: #37584D;
-    --terracotta: #8E4E23;
-    --sand: #B68F67;
+  --terracotta: #8E4E23;
+  --sand: #B68F67;
+  --ice: #EFEAE6;
+  --green: #37584D;
+  --deep-green: #1B2B29;
 
-    --line: rgba(27,43,41,.20);
-    --line-strong: rgba(27,43,41,.42);
+  --text: var(--deep-green);
+  --background: var(--ice);
+  --line: rgba(27, 43, 41, 0.22);
+  --line-light: rgba(27, 43, 41, 0.12);
 
-    --serif:
-        "Newsreader",
-        Georgia,
-        "Times New Roman",
-        serif;
+  --sans: "Montserrat", sans-serif;
+  --serif: "Newsreader", serif;
 
-    --sans:
-        "Montserrat",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-
-    --page:
-        min(1360px, calc(100vw - 96px));
+  --content-width: 1240px;
+  --text-width: 760px;
 }
 
 
-* {
-    box-sizing: border-box;
-}
+/* =========================================================
+   02. RESET
+   ========================================================= */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
-    scroll-behavior: smooth;
-    background: var(--ice);
+  scroll-behavior: smooth;
 }
-
 
 body {
-    margin: 0;
+  margin: 0;
+  padding: 0;
 
-    background: var(--ice);
+  background: var(--background);
+  color: var(--text);
 
-    color: var(--deep);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.55;
 
-    font-family: var(--serif);
-
-    -webkit-font-smoothing: antialiased;
-
-    text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
-
 
 img {
-    display: block;
-
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
-
 
 a {
-    color: inherit;
+  color: inherit;
+  text-decoration: none;
+}
 
-    text-decoration: none;
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: var(--deep-green);
+  color: var(--ice);
 }
 
 
-p,
+/* =========================================================
+   03. ESTRUTURA GLOBAL
+   ========================================================= */
+
+main,
+.site-header,
+.site-footer {
+  width: min(
+    calc(100% - 80px),
+    var(--content-width)
+  );
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================================
+   04. CABEÇALHO
+   ========================================================= */
+
+.site-header {
+  padding-top: 42px;
+}
+
+.masthead {
+  text-align: center;
+}
+
+.brand {
+  display: inline-block;
+
+  font-family: var(--sans);
+  font-size: clamp(25px, 2.5vw, 38px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.descriptor {
+  margin-top: 11px;
+
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.header-line {
+  width: 100%;
+  height: 1px;
+
+  margin-top: 29px;
+
+  background: var(--line);
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+
+  padding: 22px 0 8px;
+}
+
+.main-nav a {
+  position: relative;
+
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+
+  transition:
+    opacity 180ms ease,
+    color 180ms ease;
+}
+
+.main-nav a:hover {
+  opacity: 0.55;
+}
+
+.main-nav a.active {
+  color: var(--terracotta);
+}
+
+
+/* =========================================================
+   05. TIPOGRAFIA
+   ========================================================= */
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
 h1,
 h2,
 h3 {
-    margin-top: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 
-.skip-link {
-    position: absolute;
-
-    left: -9999px;
-
-    top: 0;
-}
-
-
-.skip-link:focus {
-    left: 20px;
-
-    top: 20px;
-
-    z-index: 1000;
-
-    background: var(--deep);
-
-    color: var(--ice);
-
-    padding: 10px 14px;
-}
-
-
-.site-shell {
-    width: var(--page);
-
-    margin: 0 auto;
-}
-
-
-/* ==========================================================
-   HEADER
-========================================================== */
-
-.site-header {
-    padding-top: 30px;
-}
-
-
-.masthead {
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    text-align: center;
-
-    padding-bottom: 20px;
-}
-
-
-.brand-name {
-    display: inline-block;
-
-    margin: 0;
-
-    font-family: var(--sans);
-
-    font-size:
-        clamp(34px, 4.7vw, 68px);
-
-    font-weight: 600;
-
-    letter-spacing: -.075em;
-
-    line-height: .88;
-
-    white-space: nowrap;
-}
-
-
-.brand-subtitle {
-    margin: 10px 0 0;
-
-    font-family: var(--sans);
-
-    font-size: 8px;
-
-    font-weight: 500;
-
-    letter-spacing: .31em;
-
-    text-transform: uppercase;
-
-    color: var(--green);
-}
-
-
-.masthead-rule {
-    width: 100%;
-
-    border-top:
-        1px solid var(--line);
-}
-
-
-.nav-row {
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 12px 0 11px;
-
-    border-bottom:
-        1px solid var(--line);
-}
-
-
-.nav {
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 26px;
-
-    flex-wrap: wrap;
-}
-
-
-.nav a {
-    font-family: var(--sans);
-
-    font-size: 8px;
-
-    font-weight: 500;
-
-    letter-spacing: .15em;
-
-    text-transform: uppercase;
-
-    color: var(--green);
-
-    transition:
-        color .2s ease,
-        opacity .2s ease;
-}
-
-
-.nav a:hover {
-    color: var(--terracotta);
-}
-
-
-/* ==========================================================
-   GENERAL
-========================================================== */
-
-.micro {
-    font-family: var(--sans);
-
-    font-size: 8px;
-
-    font-weight: 500;
-
-    letter-spacing: .17em;
-
-    line-height: 1.25;
-
-    text-transform: uppercase;
-
-    color: var(--green);
-}
-
-
-.section-rule {
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 30px;
-
-    padding-top: 10px;
-
-    border-top:
-        1px solid var(--line);
-}
-
-
-.page-section {
-    padding:
-        82px 0
-        95px;
-}
-
-
-/* ==========================================================
-   HERO
-========================================================== */
+/* =========================================================
+   06. HERO DA HOME
+   ========================================================= */
 
 .hero {
-    padding:
-        88px 0
-        92px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 90px;
+
+  padding: 150px 0 180px;
 }
 
-
-.hero-grid {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.2fr)
-        minmax(270px, .8fr);
-
-    gap:
-        clamp(60px, 9vw, 150px);
-
-    align-items: end;
+.hero-content {
+  max-width: 880px;
 }
-
-
-.hero-kicker {
-    margin-bottom: 20px;
-}
-
 
 .hero h1 {
-    max-width: 880px;
+  margin-bottom: 38px;
 
-    margin-bottom: 30px;
+  font-size: clamp(58px, 8vw, 118px);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+}
 
-    font-size:
-        clamp(65px, 7.5vw, 115px);
+.hero-text {
+  max-width: 690px;
 
-    font-weight: 400;
+  font-size: clamp(22px, 2.5vw, 32px);
+  line-height: 1.38;
+}
 
-    line-height: .88;
+.hero-method {
+  align-self: end;
+  justify-self: end;
 
-    letter-spacing: -.05em;
+  max-width: 300px;
 
-    text-align: left;
+  text-align: right;
+}
+
+.hero-method-label {
+  margin-bottom: 18px;
+
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hero-method p {
+  margin: 0;
+
+  font-size: 20px;
+  line-height: 1.45;
 }
 
 
-.hero-description {
-    max-width: 620px;
+/* =========================================================
+   07. EDIÇÃO EM DESTAQUE
+   ========================================================= */
 
-    margin: 0;
+.edition-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr);
+  gap: 80px;
+  align-items: center;
 
-    font-size: 19px;
-
-    line-height: 1.56;
-
-    text-align: left;
+  padding: 0 0 190px;
 }
 
-
-.hero-aside {
-    max-width: 320px;
-
-    justify-self: end;
-
-    text-align: right;
+.edition-feature-image {
+  order: 2;
 }
 
-
-.hero-aside .accent-line {
-    width: 65px;
-
-    margin:
-        0 0 15px auto;
-
-    border-top:
-        2px solid var(--terracotta);
+.edition-feature-image img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
-
-.hero-aside .micro {
-    margin-bottom: 9px;
+.edition-feature-content {
+  order: 1;
 }
-
-
-.hero-aside p:last-child {
-    margin-bottom: 0;
-
-    font-size: 18px;
-
-    line-height: 1.45;
-}
-
-
-/* ==========================================================
-   EDITION
-========================================================== */
-
-.edition-section {
-    padding-top: 0;
-}
-
-
-.edition-grid {
-    display: grid;
-
-    grid-template-columns:
-        68px
-        minmax(0, 1fr)
-        210px;
-
-    gap: 38px;
-
-    align-items: start;
-
-    padding-top: 42px;
-}
-
 
 .edition-number {
-    font-size: 45px;
+  margin-bottom: 28px;
 
-    line-height: 1;
-
-    color: var(--terracotta);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
 }
 
+.edition-status {
+  margin-bottom: 22px;
 
-.edition-label {
-    margin-bottom: 15px;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
+.edition-feature h2 {
+  max-width: 680px;
 
-.edition-grid h2 {
-    max-width: 820px;
+  margin-bottom: 28px;
 
-    margin-bottom: 15px;
-
-    font-size:
-        clamp(44px, 5.4vw, 76px);
-
-    font-weight: 400;
-
-    line-height: .93;
-
-    letter-spacing: -.045em;
+  font-size: clamp(42px, 5vw, 74px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
 }
 
+.edition-description {
+  max-width: 620px;
 
-.edition-grid p:not(.micro) {
-    max-width: 650px;
+  margin-bottom: 34px;
 
-    margin-bottom: 0;
-
-    font-size: 18px;
-
-    line-height: 1.52;
+  font-size: 22px;
+  line-height: 1.45;
 }
-
-
-.edition-meta {
-    font-family: var(--sans);
-
-    font-size: 8px;
-
-    font-weight: 500;
-
-    letter-spacing: .15em;
-
-    line-height: 1.8;
-
-    text-transform: uppercase;
-
-    color: var(--green);
-
-    text-align: right;
-}
-
 
 .edition-link {
-    display: inline-block;
+  display: inline-block;
 
-    margin-top: 21px;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 
-    padding-bottom: 5px;
+  border-bottom: 1px solid var(--text);
 
-    border-bottom:
-        1px solid var(--deep);
+  padding-bottom: 5px;
 
-    font-family: var(--sans);
+  transition:
+    opacity 180ms ease,
+    border-color 180ms ease;
+}
 
-    font-size: 8px;
+.edition-link:hover {
+  opacity: 0.55;
+  border-color: transparent;
+}
 
-    font-weight: 500;
+.edition-meta {
+  margin-top: 52px;
 
-    letter-spacing: .14em;
-
-    text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 
-.edition-image-wrap {
-    margin-top: 56px;
+/* =========================================================
+   08. BIBLIOTECA NA HOME
+   ========================================================= */
+
+.library-home {
+  border-top: 1px solid var(--line);
+
+  padding: 115px 0 170px;
+}
+
+.library-home-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+  gap: 80px;
+
+  margin-bottom: 90px;
+}
+
+.library-home h2 {
+  margin: 0;
+
+  font-size: clamp(46px, 6vw, 86px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.library-home-intro {
+  align-self: end;
+
+  max-width: 470px;
+
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+.library-empty-home {
+  border-top: 1px solid var(--line-light);
+
+  padding-top: 30px;
+
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 
-.edition-image {
-    width:
-        min(100%, 930px);
+/* =========================================================
+   09. ESCRITÓRIO
+   ========================================================= */
 
-    margin-left: auto;
+.office-section {
+  border-top: 1px solid var(--line);
 
-    aspect-ratio: 1 / 1;
-
-    object-fit: cover;
+  padding: 120px 0 180px;
 }
 
+.office-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 80px;
 
-.image-caption {
-    margin:
-        10px 0 0;
-
-    font-family: var(--sans);
-
-    font-size: 7px;
-
-    letter-spacing: .12em;
-
-    text-transform: uppercase;
-
-    color: var(--green);
-
-    text-align: right;
+  margin-bottom: 100px;
 }
 
+.office-heading h2 {
+  margin: 0;
 
-/* ==========================================================
-   BIBLIOTECA
-========================================================== */
-
-.library {
-    padding-top: 96px;
+  font-size: clamp(46px, 6vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
 }
 
+.office-heading p {
+  max-width: 660px;
 
-.library-intro {
-    display: grid;
+  margin: 0;
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(270px, .65fr);
-
-    gap: 100px;
-
-    padding-top: 52px;
+  font-size: 24px;
+  line-height: 1.45;
 }
-
-
-.library-intro h2 {
-    max-width: 680px;
-
-    margin-bottom: 0;
-
-    font-size:
-        clamp(48px, 5.8vw, 79px);
-
-    font-weight: 400;
-
-    line-height: .93;
-
-    letter-spacing: -.045em;
-}
-
-
-.library-intro > p {
-    margin:
-        3px 0 0;
-
-    font-size: 18px;
-
-    line-height: 1.55;
-}
-
-
-.library-empty {
-    margin-top: 65px;
-
-    padding:
-        17px 0;
-
-    border-top:
-        1px solid var(--line);
-
-    border-bottom:
-        1px solid var(--line);
-
-    font-family: var(--sans);
-
-    font-size: 8px;
-
-    font-weight: 500;
-
-    letter-spacing: .13em;
-
-    line-height: 1.6;
-
-    text-transform: uppercase;
-
-    color: var(--green);
-}
-
-
-/* ==========================================================
-   ESCRITÓRIO
-========================================================== */
-
-.office {
-    padding-top: 105px;
-}
-
-
-.office-intro {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(300px, .68fr);
-
-    gap: 90px;
-
-    padding:
-        52px 0
-        58px;
-}
-
-
-.office-intro h2 {
-    margin-bottom: 0;
-
-    font-size:
-        clamp(48px, 5.8vw, 78px);
-
-    font-weight: 400;
-
-    line-height: .94;
-
-    letter-spacing: -.045em;
-}
-
-
-.office-intro > p {
-    margin: 0;
-
-    font-size: 18px;
-
-    line-height: 1.56;
-}
-
-
-/* ==========================================================
-   ATUAÇÃO
-========================================================== */
 
 .practice-list {
-    border-top:
-        1px solid var(--deep);
+  border-top: 1px solid var(--line);
 }
-
 
 .practice-item {
-    display: grid;
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) minmax(220px, 0.55fr);
+  gap: 40px;
+  align-items: start;
 
-    grid-template-columns:
-        64px
-        minmax(0, 1fr);
+  padding: 34px 0;
 
-    gap: 32px;
-
-    padding:
-        25px 0;
-
-    border-bottom:
-        1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
-
 
 .practice-number {
-    padding-top: 4px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
 
-    font-family: var(--sans);
+.practice-title {
+  margin: 0;
 
-    font-size: 8px;
+  font-family: var(--serif);
+  font-size: clamp(27px, 3vw, 42px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
 
-    font-weight: 500;
+.practice-description {
+  margin: 0;
 
-    letter-spacing: .15em;
-
-    color: var(--terracotta);
+  font-size: 18px;
+  line-height: 1.45;
 }
 
 
-.practice-item h3 {
-    margin-bottom: 6px;
+/* =========================================================
+   10. LINK PARA METODOLOGIA
+   ========================================================= */
 
-    font-size: 29px;
+.methodology-link-section {
+  padding: 0 0 180px;
 
-    font-weight: 400;
+  text-align: center;
+}
 
-    line-height: 1.05;
+.methodology-link {
+  display: inline-block;
+
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+
+  border-bottom: 1px solid var(--text);
+  padding-bottom: 6px;
+
+  transition:
+    opacity 180ms ease,
+    border-color 180ms ease;
+}
+
+.methodology-link:hover {
+  opacity: 0.55;
+  border-color: transparent;
 }
 
 
-.practice-item p {
-    max-width: 760px;
+/* =========================================================
+   11. AUTORES
+   ========================================================= */
 
-    margin: 0;
+.authors-section {
+  border-top: 1px solid var(--line);
 
-    font-size: 17px;
-
-    line-height: 1.5;
+  padding: 120px 0 180px;
 }
 
-
-.method-link-wrap {
-    display: flex;
-
-    justify-content: center;
-
-    padding-top: 38px;
+.authors-heading {
+  margin-bottom: 100px;
 }
 
+.authors-heading h2 {
+  margin: 0;
 
-.method-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding-bottom: 6px;
-
-    border-bottom:
-        1px solid var(--deep);
-
-    font-family: var(--sans);
-
-    font-size: 8px;
-
-    font-weight: 500;
-
-    letter-spacing: .14em;
-
-    text-transform: uppercase;
-
-    color: var(--green);
+  font-size: clamp(46px, 6vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
 }
-
-
-/* ==========================================================
-   AUTORES
-========================================================== */
-
-.authors {
-    padding-top: 108px;
-}
-
 
 .author {
-    display: grid;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 90px;
+  align-items: center;
 
-    grid-template-columns:
-        minmax(230px, 360px)
-        minmax(0, 1fr);
+  padding: 75px 0;
 
-    gap: 65px;
-
-    align-items: start;
-
-    padding:
-        50px 0;
-
-    border-bottom:
-        1px solid var(--line);
+  border-top: 1px solid var(--line-light);
 }
 
-
-.author.reverse {
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(230px, 360px);
+.author:last-child {
+  border-bottom: 1px solid var(--line-light);
 }
 
-
-.author.reverse .author-photo-wrap {
-    order: 2;
+.author-image {
+  width: min(100%, 470px);
 }
 
-
-.author-photo-wrap {
-    max-width: 360px;
-
-    overflow: hidden;
+.author-image img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  filter: grayscale(100%);
 }
 
+.author-content h3 {
+  margin-bottom: 18px;
 
-.author-photo {
-    width: 100%;
-
-    aspect-ratio: 3 / 4;
-
-    object-fit: cover;
-
-    object-position: center top;
-
-    filter: grayscale(100%);
+  font-size: clamp(38px, 4vw, 62px);
+  line-height: 1;
+  letter-spacing: -0.035em;
 }
-
-
-.author-copy {
-    max-width: 660px;
-
-    padding-top: 3px;
-}
-
-
-.author-index {
-    margin-bottom: 13px;
-}
-
-
-.author-copy h3 {
-    margin-bottom: 14px;
-
-    font-size: 46px;
-
-    font-weight: 400;
-
-    line-height: .96;
-
-    letter-spacing: -.035em;
-}
-
 
 .author-role {
-    margin-bottom: 20px;
+  max-width: 620px;
 
-    font-size: 19px;
+  margin-bottom: 30px;
 
-    line-height: 1.5;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.author-bio {
+  max-width: 680px;
+
+  font-size: 21px;
+  line-height: 1.55;
 }
 
 
-.author-copy p:not(.micro):not(.author-role):not(.author-signature) {
-    margin-bottom: 18px;
+/* =========================================================
+   12. PÁGINAS INTERNAS
+   ========================================================= */
 
-    font-size: 17px;
+.page-intro {
+  max-width: 900px;
 
-    line-height: 1.55;
+  margin: 150px 0 120px;
+
+  text-align: left;
+}
+
+.page-label {
+  margin-bottom: 28px;
+
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.page-intro h1 {
+  max-width: 820px;
+
+  margin: 0;
+
+  font-family: var(--serif);
+  font-size: clamp(52px, 7vw, 100px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.page-description {
+  max-width: 680px;
+
+  margin: 38px 0 0;
+
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 31px);
+  font-weight: 400;
+  line-height: 1.35;
 }
 
 
-.author-signature {
-    margin:
-        22px 0 0;
+/* =========================================================
+   13. BIBLIOTECA
+   ========================================================= */
 
-    padding-top: 20px;
+.library-empty {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 720px);
+  gap: 48px;
+  align-items: start;
 
-    border-top:
-        1px solid var(--line);
+  padding: 70px 0 150px;
 
-    color: var(--green);
+  border-top: 1px solid var(--line);
+}
 
-    font-size: 18px;
+.library-empty-number {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
 
-    line-height: 1.5;
+.library-empty-content h2 {
+  margin: 0;
+
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.library-empty-content p {
+  max-width: 580px;
+
+  margin: 24px 0 0;
+
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.55;
 }
 
 
-/* ==========================================================
-   INTERNAL PAGES
-========================================================== */
+/* =========================================================
+   14. EDIÇÕES
+   ========================================================= */
 
-.internal-hero {
-    padding:
-        88px 0
-        72px;
+.editions-page {
+  padding-bottom: 160px;
+}
+
+.edition-index {
+  border-top: 1px solid var(--line);
+}
+
+.edition-index-item {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) minmax(180px, 0.6fr);
+  gap: 40px;
+  align-items: start;
+
+  padding: 45px 0;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.edition-index-number {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.edition-index-title {
+  margin: 0;
+
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.edition-index-meta {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 
-.internal-hero h1 {
-    max-width: 930px;
+/* =========================================================
+   15. MANIFESTO / METODOLOGIA / TEXTOS
+   ========================================================= */
 
-    margin:
-        16px 0 25px;
+.editorial-page {
+  max-width: var(--text-width);
 
-    font-size:
-        clamp(58px, 7vw, 102px);
+  margin-top: 145px;
+  margin-bottom: 170px;
+}
 
-    font-weight: 400;
+.editorial-page-label {
+  margin-bottom: 30px;
 
-    line-height: .89;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
 
-    letter-spacing: -.05em;
+.editorial-page h1 {
+  margin-bottom: 65px;
+
+  font-size: clamp(56px, 7vw, 98px);
+  line-height: 0.97;
+  letter-spacing: -0.045em;
+}
+
+.editorial-page h2 {
+  margin-top: 70px;
+  margin-bottom: 25px;
+
+  font-size: clamp(31px, 3.5vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.editorial-page p {
+  margin-bottom: 26px;
+
+  font-size: 21px;
+  line-height: 1.65;
+}
+
+.editorial-page strong {
+  font-weight: 500;
+}
+
+.editorial-page a {
+  border-bottom: 1px solid currentColor;
+}
+
+.editorial-page a:hover {
+  opacity: 0.55;
 }
 
 
-.internal-dek {
-    max-width: 720px;
-
-    margin: 0;
-
-    font-size: 20px;
-
-    line-height: 1.56;
-}
-
-
-.internal-section {
-    padding-top: 0;
-}
-
-
-.internal-content {
-    max-width: 780px;
-
-    padding:
-        0 0 105px;
-}
-
-
-.internal-content h2 {
-    margin:
-        64px 0 16px;
-
-    font-size: 40px;
-
-    font-weight: 400;
-
-    line-height: 1.02;
-
-    letter-spacing: -.025em;
-}
-
-
-.internal-content h3 {
-    margin:
-        42px 0 12px;
-
-    font-size: 27px;
-
-    font-weight: 400;
-}
-
-
-.internal-content p {
-    margin-bottom: 23px;
-
-    font-size: 19px;
-
-    line-height: 1.68;
-}
-
-
-.internal-content ul {
-    margin:
-        0 0 28px 23px;
-
-    padding: 0;
-}
-
-
-.internal-content li {
-    margin-bottom: 8px;
-
-    font-size: 18px;
-
-    line-height: 1.55;
-}
-
-
-.pullquote {
-    margin:
-        54px 0;
-
-    padding:
-        24px 0;
-
-    border-top:
-        1px solid var(--deep);
-
-    border-bottom:
-        1px solid var(--deep);
-
-    font-size: 31px;
-
-    line-height: 1.16;
-}
-
-
-.document-meta {
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 24px;
-
-    padding-top: 12px;
-
-    font-family: var(--sans);
-
-    font-size: 8px;
-
-    font-weight: 500;
-
-    letter-spacing: .13em;
-
-    line-height: 1.5;
-
-    text-transform: uppercase;
-
-    color: var(--green);
-}
-
-
-/* ==========================================================
-   EDIÇÕES
-========================================================== */
-
-.edition-index-list {
-    padding-top: 45px;
-}
-
-
-.edition-index-row {
-    display: grid;
-
-    grid-template-columns:
-        70px
-        minmax(0, 1fr)
-        180px;
-
-    gap: 30px;
-
-    padding:
-        24px 0;
-
-    border-bottom:
-        1px solid var(--line);
-}
-
-
-.edition-index-row h2 {
-    margin:
-        0 0 6px;
-
-    font-size: 33px;
-
-    font-weight: 400;
-
-    line-height: 1.02;
-}
-
-
-.edition-index-row p {
-    margin: 0;
-
-    font-size: 16px;
-
-    line-height: 1.45;
-}
-
-
-.edition-index-row .meta {
-    font-family: var(--sans);
-
-    font-size: 8px;
-
-    letter-spacing: .13em;
-
-    text-transform: uppercase;
-
-    text-align: right;
-
-    color: var(--green);
-}
-
-
-/* ==========================================================
-   FOOTER
-========================================================== */
+/* =========================================================
+   16. RODAPÉ
+   ========================================================= */
 
 .site-footer {
-    margin-top: 20px;
+  border-top: 1px solid var(--line);
 
-    background: var(--deep);
+  padding: 90px 0 30px;
 
-    color: var(--ice);
+  text-align: center;
 }
 
-
-.footer-inner {
-    width: var(--page);
-
-    margin: 0 auto;
-
-    padding:
-        56px 0
-        28px;
-
-    text-align: center;
+.footer-brand {
+  margin-bottom: 34px;
 }
 
-
-.footer-brand-name {
-    margin: 0;
-
-    font-family: var(--sans);
-
-    font-size: 26px;
-
-    font-weight: 600;
-
-    letter-spacing: -.045em;
+.footer-name {
+  font-family: var(--sans);
+  font-size: clamp(21px, 2vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
 
+.footer-descriptor {
+  margin-top: 9px;
 
-.footer-brand-type {
-    margin:
-        7px 0 0;
-
-    font-family: var(--sans);
-
-    font-size: 8px;
-
-    font-weight: 500;
-
-    letter-spacing: .23em;
-
-    text-transform: uppercase;
-
-    color: var(--sand);
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
-
 
 .footer-quote {
-    max-width: 720px;
+  max-width: 720px;
 
-    margin:
-        48px auto 0;
+  margin: 0 auto;
 
-    font-size:
-        clamp(24px, 2.8vw, 38px);
-
-    line-height: 1.12;
-
-    letter-spacing: -.025em;
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.8vw, 38px);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
 }
-
 
 .footer-instagram {
-    display: inline-block;
+  display: inline-block;
 
-    margin-top: 28px;
+  margin-top: 35px;
 
-    font-family: var(--sans);
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 
-    font-size: 8px;
+  transition: opacity 180ms ease;
+}
 
-    font-weight: 500;
+.footer-instagram:hover {
+  opacity: 0.55;
+}
 
-    letter-spacing: .15em;
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px 22px;
 
-    text-transform: uppercase;
+  margin-top: 42px;
+}
 
-    color: var(--sand);
+.footer-nav a {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition: opacity 180ms ease;
+}
+
+.footer-nav a:hover {
+  opacity: 0.55;
+}
+
+.footer-copyright {
+  margin-top: 65px;
+
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
 }
 
 
-.footer-links {
-    display: flex;
+/* =========================================================
+   17. LINKS GERAIS
+   ========================================================= */
 
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap:
-        13px 22px;
-
-    margin-top: 40px;
-
-    font-family: var(--sans);
-
-    font-size: 8px;
-
-    font-weight: 500;
-
-    letter-spacing: .13em;
-
-    text-transform: uppercase;
-
-    color:
-        rgba(239,234,230,.76);
+a {
+  transition:
+    opacity 180ms ease,
+    color 180ms ease;
 }
 
 
-.footer-links a:hover {
-    color: var(--sand);
-}
+/* =========================================================
+   18. RESPONSIVIDADE
+   ========================================================= */
 
+@media (max-width: 900px) {
 
-.footer-bottom {
-    display: flex;
+  main,
+  .site-header,
+  .site-footer {
+    width: min(
+      calc(100% - 48px),
+      var(--content-width)
+    );
+  }
 
-    justify-content: center;
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 70px;
 
-    align-items: center;
+    padding: 110px 0 135px;
+  }
 
-    text-align: center;
+  .hero-method {
+    justify-self: start;
 
-    gap: 20px;
+    text-align: left;
+  }
 
-    flex-wrap: wrap;
+  .edition-feature {
+    grid-template-columns: 1fr;
+    gap: 55px;
 
-    margin-top: 34px;
+    padding-bottom: 140px;
+  }
 
-    padding-top: 13px;
+  .edition-feature-image {
+    order: 1;
+  }
 
-    border-top:
-        1px solid rgba(239,234,230,.15);
+  .edition-feature-content {
+    order: 2;
+  }
 
-    font-family: var(--sans);
+  .library-home-header {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
 
-    font-size: 7px;
+  .office-heading {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
 
-    font-weight: 500;
+  .practice-item {
+    grid-template-columns: 60px 1fr;
+    gap: 25px;
+  }
 
-    letter-spacing: .11em;
+  .practice-description {
+    grid-column: 2;
+  }
 
-    text-transform: uppercase;
+  .author {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
 
-    color:
-        rgba(239,234,230,.50);
-}
+  .author:nth-child(even) .author-image {
+    order: 2;
+  }
 
+  .author:nth-child(even) .author-content {
+    order: 1;
+  }
 
-/* ==========================================================
-   RESPONSIVIDADE
-========================================================== */
+  .author-image {
+    width: min(100%, 430px);
+  }
 
-@media (max-width: 1020px) {
+  .edition-index-item {
+    grid-template-columns: 55px 1fr;
+    gap: 22px;
+  }
 
-    :root {
-        --page:
-            min(92vw, 920px);
-    }
-
-
-    .hero-grid,
-    .library-intro,
-    .office-intro {
-        grid-template-columns: 1fr;
-    }
-
-
-    .hero-side {
-        justify-self: start;
-
-        text-align: left;
-    }
-
-
-    .hero-aside .accent-line {
-        margin-left: 0;
-
-        margin-right: 0;
-    }
-
-
-    .edition-grid {
-        grid-template-columns:
-            60px
-            minmax(0, 1fr);
-    }
-
-
-    .edition-meta {
-        grid-column: 2;
-
-        text-align: left;
-    }
-
-
-    .edition-image {
-        width:
-            min(100%, 760px);
-    }
-
+  .edition-index-meta {
+    grid-column: 2;
+  }
 }
 
 
 @media (max-width: 760px) {
 
-    :root {
-        --page:
-            calc(100vw - 40px);
-    }
+  body {
+    font-size: 17px;
+  }
 
+  main,
+  .site-header,
+  .site-footer {
+    width: calc(100% - 38px);
+  }
 
-    .site-header {
-        padding-top: 21px;
-    }
+  .site-header {
+    padding-top: 30px;
+  }
 
+  .brand {
+    font-size: 25px;
+  }
 
-    .brand-name {
-        font-size: 31px;
-    }
+  .descriptor {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
 
+  .header-line {
+    margin-top: 24px;
+  }
 
-    .nav {
-        gap:
-            9px 15px;
-    }
+  .main-nav {
+    gap: 15px 18px;
 
+    padding-top: 18px;
+  }
 
-    .nav a {
-        font-size: 7px;
-    }
+  .main-nav a {
+    font-size: 9px;
+  }
 
 
-    .hero {
-        padding:
-            58px 0
-            76px;
-    }
+  /* Hero */
 
+  .hero {
+    padding: 90px 0 110px;
+  }
 
-    .hero h1 {
-        font-size: 57px;
-    }
+  .hero h1 {
+    margin-bottom: 30px;
 
+    font-size: clamp(50px, 15vw, 78px);
+  }
 
-    .hero-description {
-        font-size: 18px;
-    }
+  .hero-text {
+    font-size: 22px;
+  }
 
+  .hero-method {
+    max-width: 280px;
+  }
 
-    .page-section,
-    .library,
-    .office,
-    .authors {
-        padding-top: 70px;
 
-        padding-bottom: 75px;
-    }
+  /* Edição */
 
+  .edition-feature {
+    padding-bottom: 110px;
+  }
 
-    .edition-number {
-        font-size: 36px;
-    }
+  .edition-feature h2 {
+    font-size: clamp(42px, 12vw, 62px);
+  }
 
+  .edition-description {
+    font-size: 21px;
+  }
 
-    .edition-grid {
-        grid-template-columns: 1fr;
+  .edition-meta {
+    margin-top: 38px;
+  }
 
-        gap: 18px;
-    }
 
+  /* Biblioteca */
 
-    .edition-meta {
-        grid-column: auto;
-    }
+  .library-home {
+    padding: 85px 0 110px;
+  }
 
+  .library-home-header {
+    margin-bottom: 65px;
+  }
 
-    .edition-image-wrap {
-        margin-top: 36px;
-    }
+  .library-home h2 {
+    font-size: clamp(46px, 13vw, 68px);
+  }
 
+  .library-home-intro {
+    font-size: 21px;
+  }
 
-    .edition-image {
-        width: 100%;
-    }
 
+  /* Escritório */
 
-    .practice-item {
-        grid-template-columns:
-            35px
-            minmax(0,1fr);
+  .office-section {
+    padding: 90px 0 110px;
+  }
 
-        gap: 18px;
-    }
+  .office-heading {
+    margin-bottom: 70px;
+  }
 
+  .office-heading h2 {
+    font-size: clamp(46px, 13vw, 68px);
+  }
 
-    .practice-item h3 {
-        font-size: 25px;
-    }
+  .office-heading p {
+    font-size: 21px;
+  }
 
+  .practice-item {
+    grid-template-columns: 45px 1fr;
+    gap: 18px;
 
-    .practice-item p {
-        font-size: 16px;
-    }
+    padding: 28px 0;
+  }
 
+  .practice-description {
+    grid-column: 2;
 
-    .author,
-    .author.reverse {
-        grid-template-columns: 1fr;
+    font-size: 17px;
+  }
 
-        gap: 28px;
+  .practice-title {
+    font-size: 31px;
+  }
 
-        padding:
-            42px 0;
-    }
 
+  /* Metodologia */
 
-    .author.reverse .author-photo-wrap {
-        order: 0;
-    }
+  .methodology-link-section {
+    padding-bottom: 110px;
+  }
 
 
-    .author-photo-wrap {
-        max-width: 320px;
-    }
+  /* Autores */
 
+  .authors-section {
+    padding: 90px 0 110px;
+  }
 
-    .author-copy h3 {
-        font-size: 39px;
-    }
+  .authors-heading {
+    margin-bottom: 70px;
+  }
 
+  .authors-heading h2 {
+    font-size: clamp(46px, 13vw, 68px);
+  }
 
-    .author-role {
-        font-size: 18px;
-    }
+  .author {
+    padding: 55px 0;
+  }
 
+  .author-content h3 {
+    font-size: 42px;
+  }
 
-    .author-copy p:not(.micro):not(.author-role):not(.author-signature) {
-        font-size: 16px;
-    }
+  .author-role {
+    font-size: 9px;
+  }
 
+  .author-bio {
+    font-size: 19px;
+  }
 
-    .internal-hero {
-        padding:
-            67px 0
-            58px;
-    }
 
+  /* Páginas internas */
 
-    .internal-hero h1 {
-        font-size: 57px;
-    }
+  .page-intro {
+    margin: 105px 0 90px;
+  }
 
+  .page-label {
+    margin-bottom: 23px;
+    font-size: 10px;
+  }
 
-    .internal-dek {
-        font-size: 18px;
-    }
+  .page-intro h1 {
+    font-size: clamp(48px, 14vw, 76px);
+  }
 
+  .page-description {
+    margin-top: 30px;
 
-    .internal-content p {
-        font-size: 18px;
+    font-size: 22px;
+  }
 
-        line-height: 1.65;
-    }
 
+  /* Biblioteca */
 
-    .edition-index-row {
-        grid-template-columns: 1fr;
+  .library-empty {
+    grid-template-columns: 1fr;
+    gap: 20px;
 
-        gap: 12px;
-    }
+    padding: 50px 0 100px;
+  }
 
+  .library-empty-number {
+    margin-bottom: 4px;
+  }
 
-    .edition-index-row .meta {
-        text-align: left;
-    }
+  .library-empty-content h2 {
+    font-size: 38px;
+  }
 
+  .library-empty-content p {
+    font-size: 20px;
+  }
 
-    .footer-inner {
-        padding-top: 48px;
-    }
 
+  /* Páginas editoriais */
 
-    .footer-quote {
-        margin-top: 42px;
+  .editorial-page {
+    margin-top: 100px;
+    margin-bottom: 110px;
+  }
 
-        font-size: 29px;
-    }
+  .editorial-page h1 {
+    margin-bottom: 50px;
 
+    font-size: clamp(50px, 14vw, 75px);
+  }
+
+  .editorial-page h2 {
+    margin-top: 55px;
+
+    font-size: 35px;
+  }
+
+  .editorial-page p {
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+
+  /* Rodapé */
+
+  .site-footer {
+    padding-top: 70px;
+  }
+
+  .footer-quote {
+    font-size: 26px;
+    max-width: 500px;
+  }
+
+  .footer-nav {
+    gap: 10px 18px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-copyright {
+    margin-top: 52px;
+  }
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 460px) {
 
-    .brand-name {
-        font-size: 27px;
-    }
+  main,
+  .site-header,
+  .site-footer {
+    width: calc(100% - 30px);
+  }
+
+  .main-nav {
+    gap: 12px 15px;
+  }
+
+  .main-nav a {
+    font-size: 8px;
+  }
+
+  .hero h1 {
+    font-size: 50px;
+  }
+
+  .hero-text {
+    font-size: 21px;
+  }
+
+  .edition-feature h2 {
+    font-size: 42px;
+  }
+
+  .practice-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .practice-description {
+    grid-column: auto;
+  }
+
+  .practice-title {
+    font-size: 29px;
+  }
+
+  .author-content h3 {
+    font-size: 38px;
+  }
+
+  .footer-quote {
+    font-size: 24px;
+  }
+
+  .footer-nav {
+    gap: 10px 14px;
+  }
+}
 
 
-    .nav {
-        gap:
-            7px 10px;
-    }
+/* =========================================================
+   19. ACESSIBILIDADE
+   ========================================================= */
 
+a:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 5px;
+}
 
-    .nav a {
-        font-size: 6.7px;
-    }
+@media (prefers-reduced-motion: reduce) {
 
+  html {
+    scroll-behavior: auto;
+  }
 
-    .footer-links {
-        gap:
-            10px 14px;
-    }
-
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
 }
