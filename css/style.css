@@ -1110,17 +1110,17 @@ h3 {
 
 
 .footer-quote {
-    max-width: 870px;
+    max-width: 720px;
 
     margin:
-        52px auto 0;
+        48px auto 0;
 
     font-size:
-        clamp(30px, 4vw, 52px);
+        clamp(24px, 2.8vw, 38px);
 
-    line-height: 1.08;
+    line-height: 1.12;
 
-    letter-spacing: -.027em;
+    letter-spacing: -.025em;
 }
 
 
