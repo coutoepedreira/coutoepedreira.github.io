@@ -118,5 +118,5 @@ Mude o valor ali e o site inteiro acompanha.
 
 ## Pendências registradas
 
-- Créditos das fotografias, se forem de banco de imagens. Falta o do fotógrafo da abertura da Biblioteca (Real Gabinete Português de Leitura).
+- Créditos das fotografias, se forem de banco de imagens.
 - `assets/edicao-01.jpg` e `assets/manifesto-02.jpg` não são mais usadas e podem ser apagadas.
