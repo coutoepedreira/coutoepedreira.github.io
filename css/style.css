@@ -1,6 +1,6 @@
 /* ==========================================================================
    COUTO & PEDREIRA · folha de estilo
-   Versão 3.0 · setembro de 2026
+   Versão 4.0 · setembro de 2026
 
    Como ler este arquivo
    ---------------------
@@ -29,7 +29,8 @@
    15. Rodapé e expediente
    16. Acessibilidade e utilitários
    17. Telas largas (a partir de 1024 px e de 1280 px)
-   18. Impressão
+   18. Página da edição
+   19. Impressão
    ========================================================================== */
 
 
@@ -460,6 +461,13 @@ b {
 
 .capa .linha-fina {
   max-width: 24em;
+}
+
+/* Na capa da página inicial o título divide espaço com a foto:
+   usa o tamanho de título de página (88 px), não o de capa (110 px). */
+.capa .titulo-capa {
+  font-size: var(--t-h1);
+  line-height: 0.98;
 }
 
 .capa-status {
@@ -1431,7 +1439,688 @@ b {
 
 
 /* --------------------------------------------------------------------------
-   18. IMPRESSÃO
+   18. PÁGINA DA EDIÇÃO
+   Cada edição é uma página única, em /edicoes/. Usa a mesma grade do
+   texto corrido (seção 14) e acrescenta as peças de reportagem:
+   capitular, número em destaque, tabela, gráfico, cadeia, mapa de
+   riscos, sumário fixo na margem e o sinal de fim.
+   -------------------------------------------------------------------------- */
+
+.edicao-pagina .abertura h1 {
+  margin-top: 1rem;
+  font-size: var(--t-capa);
+  line-height: 0.96;
+  letter-spacing: -0.022em;
+}
+
+.edicao-pagina .abertura .linha-fina {
+  max-width: 27em;
+  margin-top: 1.75rem;
+}
+
+.edicao-trilho .numero {
+  font-size: clamp(2.5rem, 1.6rem + 3vw, 4rem);
+}
+
+/* Imagem de abertura, na largura inteira da página. */
+.edicao-capa {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.edicao-capa img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.edicao-capa .legenda {
+  text-align: right;
+}
+
+/* Capitular: a primeira letra do texto em três linhas. Só aparece nos
+   navegadores que conhecem initial-letter; nos outros, o texto começa
+   normalmente, sem prejuízo. */
+@supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+  .abre::first-letter {
+    -webkit-initial-letter: 3;
+    initial-letter: 3;
+    margin-right: 0.08em;
+    font-weight: 400;
+    color: var(--tinta);
+  }
+}
+
+/* Número em destaque: um dado grande, com a explicação ao lado. */
+.numero-destaque {
+  display: grid;
+  gap: 0.5rem;
+  margin-block: 2.5em;
+  padding-top: 1rem;
+  border-top: 1px solid var(--tinta);
+}
+
+.numero-destaque-valor {
+  font-size: var(--t-h1);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.numero-destaque figcaption {
+  max-width: 18em;
+  font-size: var(--t-legenda);
+  line-height: 1.45;
+  color: var(--verde);
+}
+
+/* Tabela editorial: fios finos, números alinhados à direita. */
+.tabela-editorial {
+  margin-block: 2.2em;
+  overflow-x: auto;
+}
+
+.tabela-editorial table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-nota);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabela-editorial caption {
+  padding-bottom: 0.6rem;
+  text-align: left;
+}
+
+.tabela-editorial th,
+.tabela-editorial td {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--fio);
+  text-align: left;
+  font-weight: 400;
+  vertical-align: baseline;
+}
+
+.tabela-editorial thead th {
+  padding-top: 0;
+  border-bottom: 1px solid var(--tinta);
+  font-family: var(--sans);
+  font-size: var(--t-rotulo);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--verde);
+}
+
+.tabela-editorial td,
+.tabela-editorial thead th + th {
+  padding-left: 1rem;
+  text-align: right;
+}
+
+.tabela-editorial td {
+  white-space: nowrap;
+}
+
+.tabela-editorial tbody tr:first-child th,
+.tabela-editorial tbody tr:first-child td {
+  border-top: 1px solid var(--tinta);
+}
+
+.tabela-editorial .legenda {
+  font-size: 0.9375rem;
+}
+
+/* Gráfico. As cores saem das variáveis da marca; o texto do gráfico usa
+   as cores de texto, nunca a cor da linha. */
+.grafico {
+  margin-block: 2.5em;
+  padding-top: 1rem;
+  border-top: 1px solid var(--tinta);
+}
+
+.grafico-cabeca {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.grafico-titulo {
+  font-size: var(--t-h3);
+  line-height: 1.2;
+}
+
+.grafico-sub {
+  font-size: var(--t-legenda);
+  line-height: 1.45;
+  color: var(--verde);
+}
+
+.grafico-legenda {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1.5rem;
+  margin: 1rem 0 0.5rem;
+  padding: 0;
+  list-style: none;
+  font-family: var(--sans);
+  font-size: var(--t-rotulo);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--tinta);
+}
+
+.grafico-legenda li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.texto-corpo .grafico-legenda li {
+  margin: 0;
+}
+
+.chave {
+  display: inline-block;
+  width: 1.5rem;
+  height: 0;
+  border-top: 2px solid;
+}
+
+.chave-atualizado {
+  border-color: var(--tinta);
+}
+
+.chave-presente {
+  border-color: var(--terracota);
+}
+
+.grafico-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.grafico-largo {
+  display: none;
+}
+
+.g-grade {
+  stroke: var(--fio);
+  stroke-width: 1;
+}
+
+.g-base {
+  stroke: var(--tinta);
+}
+
+.g-eixo {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  fill: var(--verde);
+  font-variant-numeric: tabular-nums;
+}
+
+.g-linha {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.g-atualizado {
+  stroke: var(--tinta);
+}
+
+.g-presente {
+  stroke: var(--terracota);
+}
+
+.g-area {
+  fill: var(--terracota);
+  fill-opacity: 0.1;
+}
+
+.g-ponto {
+  stroke: var(--papel);
+  stroke-width: 2;
+}
+
+.g-ponto.g-atualizado {
+  fill: var(--tinta);
+}
+
+.g-ponto.g-presente {
+  fill: var(--terracota);
+}
+
+.g-rotulo {
+  font-family: var(--serifa);
+  font-size: 15px;
+  fill: var(--tinta);
+}
+
+.g-nota {
+  font-family: var(--serifa);
+  font-size: 14px;
+  font-style: italic;
+  fill: var(--verde);
+}
+
+/* Listas do texto. */
+.lista-fina {
+  padding-left: 0;
+  list-style: none;
+}
+
+.texto-corpo .lista-fina li {
+  position: relative;
+  padding-left: 1.2em;
+}
+
+.lista-fina li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--verde);
+}
+
+.lista-numerada {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: item;
+  border-top: 1px solid var(--tinta);
+}
+
+.texto-corpo .lista-numerada li {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  margin: 0;
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--fio);
+  counter-increment: item;
+}
+
+.lista-numerada li::before {
+  content: counter(item, decimal-leading-zero);
+  padding-top: 0.3em;
+  font-family: var(--sans);
+  font-size: var(--t-rotulo);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--terracota);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Três valores lado a lado. */
+.tres-valores {
+  display: grid;
+  gap: 1.25rem;
+  margin-block: 2em;
+}
+
+.tres-valores div {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--tinta);
+}
+
+.tres-valores dt {
+  font-family: var(--sans);
+  font-size: var(--t-rotulo);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--verde);
+}
+
+.tres-valores dd {
+  margin: 0.4rem 0 0;
+  font-size: var(--t-nota);
+  line-height: 1.5;
+}
+
+/* Cadeia: do crédito judicial ao certificado. */
+.cadeia {
+  display: grid;
+  margin-block: 2em;
+  padding: 0;
+  list-style: none;
+  counter-reset: passo;
+}
+
+.texto-corpo .cadeia li {
+  position: relative;
+  margin: 0;
+  padding: 0.2rem 0 1.4rem 1.5rem;
+  border-left: 1px solid var(--tinta);
+  font-size: var(--t-linha-fina);
+  line-height: 1.25;
+  counter-increment: passo;
+  hyphens: manual;
+}
+
+.cadeia li::before {
+  content: counter(passo);
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--sans);
+  font-size: var(--t-rotulo);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--terracota);
+}
+
+.texto-corpo .cadeia li:last-child {
+  padding-bottom: 0.2rem;
+}
+
+/* Mapa dos riscos. */
+.mapa-riscos {
+  margin-block: 2em;
+  border-top: 1px solid var(--tinta);
+}
+
+.mapa-riscos div {
+  display: grid;
+  gap: 0.2rem;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--fio);
+}
+
+.mapa-riscos dt {
+  font-size: var(--t-nota);
+  font-weight: 500;
+}
+
+.mapa-riscos dd {
+  margin: 0;
+  font-size: var(--t-nota);
+  line-height: 1.5;
+}
+
+/* Sequência: frases curtas, uma por linha. */
+.sequencia {
+  margin-block: 2em;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--tinta);
+}
+
+.texto-corpo .sequencia li {
+  margin: 0;
+  padding-block: 0.55rem;
+  border-bottom: 1px solid var(--fio);
+  font-size: var(--t-linha-fina);
+  line-height: 1.35;
+  hyphens: manual;
+}
+
+.texto-corpo .sequencia li:last-child {
+  font-style: italic;
+}
+
+/* Perguntas em aberto. */
+.em-aberto {
+  margin-top: 3em;
+  padding: 1.25rem 1.25rem 1.4rem;
+  background: var(--fundo-nota);
+  border-top: 2px solid var(--terracota);
+}
+
+.em-aberto p {
+  margin-top: 0;
+  font-size: var(--t-nota);
+  line-height: 1.5;
+}
+
+.em-aberto ol {
+  margin-top: 1rem;
+  padding-left: 1.4em;
+}
+
+.em-aberto li {
+  font-size: var(--t-nota);
+  line-height: 1.5;
+}
+
+.em-aberto li + li {
+  margin-top: 0.6rem;
+}
+
+/* Sinal de fim: o quadradinho terracota no último parágrafo do fecho. */
+.fim::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-left: 0.35em;
+  background: var(--terracota);
+  vertical-align: baseline;
+}
+
+/* Intertítulos numerados da edição: um fio acima de cada seção. */
+.edicao-pagina .texto-corpo h2[id^="s"] {
+  margin-top: 3em;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--fio);
+}
+
+.edicao-pagina .texto-corpo h2[id^="s"] .num {
+  top: 1.1rem;
+}
+
+/* Sobre o autor. */
+.sobre-autor {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 2.5em;
+  padding-top: 1rem;
+  border-top: 1px solid var(--fio);
+}
+
+.sobre-autor img {
+  width: 4.5rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: grayscale(1);
+}
+
+.sobre-autor p {
+  font-size: var(--t-legenda);
+  line-height: 1.5;
+}
+
+.sobre-autor p + p {
+  margin-top: 0.4rem;
+}
+
+/* Sumário da edição. No celular, uma lista que abre e fecha no início
+   do texto; em tela larga, fica fixo na margem esquerda. */
+.sumario-celular {
+  margin-bottom: 2rem;
+  border-block: 1px solid var(--fio);
+}
+
+.sumario-celular summary {
+  padding-block: 0.8rem;
+  font-family: var(--sans);
+  font-size: var(--t-rotulo);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tinta);
+  cursor: pointer;
+}
+
+.sumario-edicao ol {
+  margin: 0;
+  padding: 0 0 1rem;
+  list-style: none;
+}
+
+.sumario-edicao li {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  padding-block: 0.3rem;
+  font-size: var(--t-legenda);
+  line-height: 1.35;
+}
+
+.sumario-edicao li span {
+  font-family: var(--sans);
+  font-size: var(--t-rotulo);
+  font-weight: 500;
+  padding-top: 0.15em;
+  color: var(--terracota);
+  font-variant-numeric: tabular-nums;
+}
+
+.sumario-edicao a {
+  text-decoration: none;
+}
+
+.sumario-edicao a:hover {
+  color: var(--terracota);
+}
+
+.sumario-lateral {
+  display: none;
+}
+
+
+/* Título de capa que é link: sem sublinhado, terracota ao passar. */
+.capa-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.capa-link:hover {
+  color: var(--terracota);
+}
+
+.sumario-lista.sumario-edicao li {
+  padding-block: 0.6rem;
+}
+
+.edicao-corpo .chamada {
+  margin-top: 1.75rem;
+}
+
+/* Listas próprias da edição não herdam o recuo das listas comuns. */
+.texto-corpo .lista-fina,
+.texto-corpo .lista-numerada,
+.texto-corpo .sequencia,
+.texto-corpo .cadeia {
+  padding-left: 0;
+}
+
+html {
+  scroll-padding-top: 1.5rem;
+}
+
+@media (min-width: 48em) {
+  .grafico-largo {
+    display: block;
+  }
+
+  .grafico-estreito {
+    display: none;
+  }
+
+  .numero-destaque {
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 2rem;
+    align-items: end;
+  }
+
+  .tres-valores {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mapa-riscos div {
+    grid-template-columns: 11rem minmax(0, 1fr);
+    column-gap: 1.5rem;
+  }
+
+  /* Cadeia na horizontal, com setas desenhadas pelo CSS. */
+  .cadeia {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .texto-corpo .cadeia li {
+    padding: 0.9rem 1rem 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--tinta);
+    font-size: var(--t-nota);
+  }
+
+  .cadeia li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 7px solid var(--tinta);
+  }
+
+  .texto-corpo .cadeia li:last-child {
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 64em) {
+  .sumario-celular {
+    display: none;
+  }
+
+  .sumario-lateral {
+    display: block;
+    position: sticky;
+    top: 1.5rem;
+    margin-top: 2.5rem;
+    /* Folga à direita: os números das seções penduram nessa faixa e
+       não podem encostar no sumário quando ele passa ao lado. */
+    margin-right: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--fio);
+  }
+
+  .sumario-lateral .rotulo {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (min-width: 80em) {
+  /* Peças largas avançam sobre a margem e começam abaixo de qualquer
+     glosa, para nunca se sobreporem a ela. */
+  .texto-corpo .figura-larga,
+  .texto-corpo .olho,
+  .texto-corpo .cadeia,
+  .texto-corpo .numero-destaque {
+    clear: right;
+  }
+
+  .texto-corpo .grafico.figura-larga,
+  .texto-corpo .figura-texto.figura-larga,
+  .texto-corpo .cadeia {
+    margin-right: calc(-1 * (var(--glosa) + var(--vao)));
+  }
+
+  .texto-corpo .cadeia li {
+    font-size: var(--t-linha-fina);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   19. IMPRESSÃO
    Advogado imprime. Os textos saem limpos: sem menu, sem rodapé, com
    o endereço dos links entre parênteses.
    -------------------------------------------------------------------------- */
@@ -1454,7 +2143,9 @@ b {
   .pular,
   .chamada,
   .rodape,
-  .abertura-figura {
+  .abertura-figura,
+  .sumario-celular,
+  .sumario-lateral {
     display: none !important;
   }
 
