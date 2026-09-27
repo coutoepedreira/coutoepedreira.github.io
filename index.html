@@ -22,8 +22,10 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Segurança: o site não usa scripts nem recursos de fora -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <!-- Segurança: o site não usa scripts, formulários nem recursos de fora.
+       Tudo o que não estiver liberado aqui é bloqueado pelo navegador.
+       Detalhes em SEGURANCA.md. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; frame-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Ícone, cor do navegador no celular, fontes e estilo -->
@@ -74,15 +76,15 @@
           <p class="chapeu">Edição · Dossiê · Setembro de 2026</p>
         </div>
         <div>
-          <h2 class="titulo-capa" id="capa-titulo"><a class="capa-link" href="edicoes/01.html">Quando o precatório entra no balanço</a></h2>
-          <p class="linha-fina">Um crédito contra o Estado nasce de uma sentença. Quando é vendido, ganha preço, custo de capital e dever de diligência. Este dossiê acompanha o caminho do processo ao balanço.</p>
+          <h2 class="titulo-capa" id="capa-titulo"><a class="capa-link" href="edicoes/quando-o-precatorio-entra-no-balanco.html">Quando o precatório entra no balanço</a></h2>
+          <p class="linha-fina">Um crédito contra o Estado nasce de uma sentença e, quando é vendido, ganha preço, custo de capital e dever de diligência.</p>
           <p class="assinatura">Por <a href="#autores">Yago do Couto</a></p>
-          <p class="rotulo capa-status">Leitura de 21 min</p>
-          <a class="chamada" href="edicoes/01.html">Ler a edição</a>
+          <p class="rotulo capa-status">Leitura de 20 min</p>
+          <a class="chamada" href="edicoes/quando-o-precatorio-entra-no-balanco.html">Ler a edição</a>
         </div>
       </div>
       <figure class="capa-imagem">
-        <a href="edicoes/01.html" tabindex="-1" aria-hidden="true"><img src="assets/edicao-01-capa-quadrada.jpg" width="1600" height="1600" alt="Livro-razão antigo, aberto sobre um feltro verde, com colunas escritas à mão e uma pena de escrever" fetchpriority="high" decoding="async"></a>
+        <a href="edicoes/quando-o-precatorio-entra-no-balanco.html" tabindex="-1" aria-hidden="true"><img src="assets/edicao-01-capa-quadrada.jpg" width="1600" height="1600" alt="Livro-razão antigo, aberto sobre um feltro verde, com colunas escritas à mão e uma pena de escrever" fetchpriority="high" decoding="async"></a>
       </figure>
     </section>
 
@@ -244,7 +246,7 @@
         <div>
           <p class="rotulo">Contato</p>
           <ul>
-            <li><a href="mailto:coutoepedreira@gmail.com">coutoepedreira@gmail.com</a></li>
+            <li><a href="mailto:coutoepedreiralaw@gmail.com">coutoepedreiralaw@gmail.com</a></li>
             <li><a href="https://www.instagram.com/coutoepedreira/">Instagram</a></li>
           </ul>
         </div>

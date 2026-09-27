@@ -2,7 +2,7 @@
 
 Site editorial de Couto & Pedreira Advocacia Consultiva: Direito, patrimônio, créditos judiciais e economia.
 
-Versão 4.0, setembro de 2026. HTML e CSS puros, sem scripts, sem dependências e sem recursos de fora. Publicado pelo GitHub Pages.
+Versão 5.0, setembro de 2026. HTML e CSS puros, sem scripts, sem dependências e sem recursos de fora. Publicado pelo GitHub Pages.
 
 ---
 
@@ -14,7 +14,8 @@ Versão 4.0, setembro de 2026. HTML e CSS puros, sem scripts, sem dependências 
 ├── biblioteca.html     Índice de textos e os cinco formatos
 ├── edicoes.html        Lista de edições (a mais nova primeiro)
 ├── edicoes/
-│   └── 01.html         Edição 01, página única: Quando o precatório entra no balanço
+│   ├── quando-o-precatorio-entra-no-balanco.html   Edição 01, página única
+│   └── 01.html         Endereço antigo da Edição 01: leva ao novo (não apague)
 ├── manifesto.html
 ├── metodologia.html
 ├── termos.html
@@ -29,7 +30,11 @@ Versão 4.0, setembro de 2026. HTML e CSS puros, sem scripts, sem dependências 
 ├── robots.txt
 ├── favicon.ico
 ├── CNAME               Domínio (não mexa)
-└── .nojekyll           Diz ao GitHub para servir os arquivos como estão (não mexa)
+├── .nojekyll           Diz ao GitHub para servir os arquivos como estão (não mexa)
+├── .well-known/
+│   └── security.txt    Contato para quem encontrar uma falha de segurança (renovar todo ano)
+├── .github/            Verificação automática do site (veja SEGURANCA.md)
+└── SEGURANCA.md        O que protege o site e os ajustes de conta recomendados
 ```
 
 ---
@@ -57,12 +62,14 @@ Tudo pode ser feito pelo navegador, no próprio GitHub.
 
 ## Como publicar uma edição nova
 
-Cada edição é uma página única, dentro da pasta `edicoes/`: `edicoes/01.html`, `edicoes/02.html` e assim por diante. Use a Edição 01 como modelo, porque ela tem todas as peças prontas.
+Use a Edição 01 como modelo, porque ela tem todas as peças prontas.
 
-1. **Crie a página.** Copie `edicoes/01.html` para `edicoes/02.html` (no GitHub: abra o arquivo, *Raw*, copie; depois *Add file → Create new file* com o nome `edicoes/02.html`).
-2. **Troque o cabeçalho da página** (dentro de `<head>`): `<title>`, `description`, `canonical`, `og:url`, `og:image`, `article:published_time` e o autor.
+Cada edição é uma página única, e o nome do arquivo é o endereço que aparece no Google. Use o título da edição, em minúsculas, sem acento, com as palavras separadas por hífen: `edicoes/quando-o-precatorio-entra-no-balanco.html`.
+
+1. **Crie a página.** Copie `edicoes/quando-o-precatorio-entra-no-balanco.html` para `edicoes/titulo-da-nova-edicao.html` (no GitHub: abra o arquivo, *Raw*, copie; depois *Add file → Create new file* com o novo nome).
+2. **Troque o cabeçalho da página** (dentro de `<head>`): `<title>`, `description`, `canonical`, `og:url`, `og:image`, `article:published_time`, o autor e a ficha de dados estruturados (`application/ld+json`: título, descrição, imagens, datas e endereço). O `canonical`, o `og:url` e o `mainEntityOfPage` levam o endereço completo da página nova.
 3. **Troque a abertura:** número, mês, chapéu, título, linha fina, assinatura e a imagem de abertura (16:9, 2400 × 1350 px).
-4. **Troque a ficha e o sumário** no trilho. O sumário aparece duas vezes: uma para tela larga (`sumario-lateral`) e outra para o celular (`sumario-celular`, onde também vai o total de seções). Cada item aponta para o `id` de um intertítulo (`#s1`, `#s2`...). As "Perguntas em aberto" e o "Fecho" também são seções numeradas: na Edição 01, são a 13 e a 14.
+4. **Troque a ficha e o sumário** no trilho. O sumário aparece duas vezes: uma para tela larga (`sumario-lateral`) e outra para o celular (`sumario-celular`, onde também vai o total de seções). Cada item aponta para o `id` de um intertítulo (`#s1`, `#s2`...). As "Perguntas em aberto" e o "Fecho" também são seções numeradas: na Edição 01, são a 12 e a 13.
 5. **Escreva o corpo** com as peças da Edição 01, todas comentadas no código:
    - `tese`, `glosa`, `olho`, `citacao` (as mesmas do modelo de texto);
    - `abre`: o primeiro parágrafo, que ganha a letra capitular;
@@ -99,6 +106,9 @@ Mude o valor ali e o site inteiro acompanha.
 - Imagens: veja `assets/README.md`.
 - O menu e o rodapé se repetem em todas as páginas. Se mudar um item, mude em todos os arquivos (a busca do GitHub, tecla `t`, ajuda a achar).
 - A página atual do menu é marcada com `aria-current="page"`. É isso que desenha o fio terracota embaixo da palavra.
+- O e-mail de contato é **coutoepedreiralaw@gmail.com**. Se um dia mudar, troque em todas as páginas, no `.well-known/security.txt` e na linha `EMAILS_OFICIAIS` de `.github/verificar_site.py`.
+- Depois de cada alteração, confira o ✓ verde ao lado do commit no GitHub. Se aparecer um ✗ vermelho, a verificação automática diz o arquivo, a linha e o que corrigir (veja `SEGURANCA.md`).
+- Nunca suba documentos de trabalho (`.docx`, `.xlsx`, `.pdf` de cliente) para o repositório: tudo o que está nele fica público na internet.
 
 ## Assinaturas e inscrições
 
@@ -108,4 +118,5 @@ Mude o valor ali e o site inteiro acompanha.
 
 ## Pendências registradas
 
-- Créditos das fotografias, se forem de banco de imagens.
+- Créditos das fotografias, se forem de banco de imagens. Falta o do fotógrafo da abertura da Biblioteca (Real Gabinete Português de Leitura).
+- `assets/edicao-01.jpg` e `assets/manifesto-02.jpg` não são mais usadas e podem ser apagadas.

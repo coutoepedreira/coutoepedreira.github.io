@@ -22,8 +22,10 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Segurança: o site não usa scripts nem recursos de fora -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <!-- Segurança: o site não usa scripts, formulários nem recursos de fora.
+       Tudo o que não estiver liberado aqui é bloqueado pelo navegador.
+       Detalhes em SEGURANCA.md. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; frame-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Ícone, cor do navegador no celular, fontes e estilo -->
@@ -149,7 +151,7 @@
         <div>
           <p class="rotulo">Contato</p>
           <ul>
-            <li><a href="mailto:coutoepedreira@gmail.com">coutoepedreira@gmail.com</a></li>
+            <li><a href="mailto:coutoepedreiralaw@gmail.com">coutoepedreiralaw@gmail.com</a></li>
             <li><a href="https://www.instagram.com/coutoepedreira/">Instagram</a></li>
           </ul>
         </div>

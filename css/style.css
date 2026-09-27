@@ -1868,6 +1868,10 @@ b {
   border-top: 2px solid var(--terracota);
 }
 
+.em-aberto > :first-child {
+  margin-top: 0;
+}
+
 .em-aberto p {
   margin-top: 0;
   font-size: var(--t-nota);
@@ -1886,6 +1890,11 @@ b {
 
 .em-aberto li + li {
   margin-top: 0.6rem;
+}
+
+/* Página de endereço antigo: uma linha, com o link para o novo. */
+.redirecionamento {
+  padding-block: 4rem;
 }
 
 /* Sinal de fim: o quadradinho terracota no último parágrafo do fecho. */

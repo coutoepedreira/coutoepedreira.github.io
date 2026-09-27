@@ -22,8 +22,10 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Segurança: o site não usa scripts nem recursos de fora -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <!-- Segurança: o site não usa scripts, formulários nem recursos de fora.
+       Tudo o que não estiver liberado aqui é bloqueado pelo navegador.
+       Detalhes em SEGURANCA.md. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; frame-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Ícone, cor do navegador no celular, fontes e estilo -->
@@ -84,8 +86,8 @@
       <div class="corpo edicao-corpo">
         <div>
           <p class="chapeu">Dossiê</p>
-          <h2 class="edicao-titulo" id="edicao-01-titulo"><a class="capa-link" href="edicoes/01.html">Quando o precatório entra no balanço</a></h2>
-          <p class="linha-fina">Um crédito contra o Estado nasce de uma sentença. Quando é vendido, ganha preço, custo de capital e dever de diligência. Este dossiê acompanha o caminho do processo ao balanço.</p>
+          <h2 class="edicao-titulo" id="edicao-01-titulo"><a class="capa-link" href="edicoes/quando-o-precatorio-entra-no-balanco.html">Quando o precatório entra no balanço</a></h2>
+          <p class="linha-fina">Um crédito contra o Estado nasce de uma sentença e, quando é vendido, ganha preço, custo de capital e dever de diligência.</p>
           <dl class="ficha">
             <div>
               <dt>Autoria</dt>
@@ -93,36 +95,35 @@
             </div>
             <div>
               <dt>Leitura</dt>
-              <dd>21 min</dd>
+              <dd>20 min</dd>
             </div>
             <div>
               <dt>Publicação</dt>
               <dd>Setembro de 2026</dd>
             </div>
           </dl>
-          <a class="chamada" href="edicoes/01.html">Ler a edição</a>
+          <a class="chamada" href="edicoes/quando-o-precatorio-entra-no-balanco.html">Ler a edição</a>
           <div class="sumario">
             <h3 class="rotulo">Sumário</h3>
             <ol class="sumario-lista sumario-edicao">
-              <li><span>01</span> <a href="edicoes/01.html#s1">O que se compra quando se compra um precatório?</a></li>
-              <li><span>02</span> <a href="edicoes/01.html#s2">Por que um milhão não vale um milhão?</a></li>
-              <li><span>03</span> <a href="edicoes/01.html#s3">Quando o futuro chega?</a></li>
-              <li><span>04</span> <a href="edicoes/01.html#s4">Como se registra um crédito que não nasceu de um contrato?</a></li>
-              <li><span>05</span> <a href="edicoes/01.html#s5">Quanto capital custa carregar um precatório?</a></li>
-              <li><span>06</span> <a href="edicoes/01.html#s6">O que a CVM enxerga?</a></li>
-              <li><span>07</span> <a href="edicoes/01.html#s7">O que acontece quando o precatório entra num fundo?</a></li>
-              <li><span>08</span> <a href="edicoes/01.html#s8">Quem sabe mais sobre o crédito?</a></li>
-              <li><span>09</span> <a href="edicoes/01.html#s9">Quais são os riscos, afinal?</a></li>
-              <li><span>10</span> <a href="edicoes/01.html#s10">Onde entra o advogado?</a></li>
-              <li><span>11</span> <a href="edicoes/01.html#s11">O que cabe na linha em branco?</a></li>
-              <li><span>12</span> <a href="edicoes/01.html#s12">O que muda, então?</a></li>
-              <li><span>13</span> <a href="edicoes/01.html#s13">Perguntas em aberto</a></li>
-              <li><span>14</span> <a href="edicoes/01.html#s14">Fecho</a></li>
+              <li><span>01</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s1">O que se compra quando se compra um precatório?</a></li>
+              <li><span>02</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s2">Por que um milhão não vale um milhão?</a></li>
+              <li><span>03</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s3">Quando o futuro chega?</a></li>
+              <li><span>04</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s4">Como se registra um crédito que não nasceu de um contrato?</a></li>
+              <li><span>05</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s5">Quanto capital custa carregar um precatório?</a></li>
+              <li><span>06</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s6">O que acontece quando o precatório entra num fundo?</a></li>
+              <li><span>07</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s7">Quem sabe mais sobre o crédito?</a></li>
+              <li><span>08</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s8">Quais são os riscos, afinal?</a></li>
+              <li><span>09</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s9">Onde entra o advogado?</a></li>
+              <li><span>10</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s10">A última pergunta</a></li>
+              <li><span>11</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s11">O que muda, então?</a></li>
+              <li><span>12</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s12">Perguntas em aberto</a></li>
+              <li><span>13</span> <a href="edicoes/quando-o-precatorio-entra-no-balanco.html#s13">Fecho</a></li>
             </ol>
           </div>
         </div>
         <figure class="edicao-imagem">
-          <a href="edicoes/01.html" tabindex="-1" aria-hidden="true"><img src="assets/edicao-01-capa-quadrada.jpg" width="1600" height="1600" alt="Livro-razão antigo, aberto sobre um feltro verde, com colunas escritas à mão e uma pena de escrever" loading="lazy" decoding="async"></a>
+          <a href="edicoes/quando-o-precatorio-entra-no-balanco.html" tabindex="-1" aria-hidden="true"><img src="assets/edicao-01-capa-quadrada.jpg" width="1600" height="1600" alt="Livro-razão antigo, aberto sobre um feltro verde, com colunas escritas à mão e uma pena de escrever" loading="lazy" decoding="async"></a>
         </figure>
       </div>
     </section>
@@ -155,7 +156,7 @@
         <div>
           <p class="rotulo">Contato</p>
           <ul>
-            <li><a href="mailto:coutoepedreira@gmail.com">coutoepedreira@gmail.com</a></li>
+            <li><a href="mailto:coutoepedreiralaw@gmail.com">coutoepedreiralaw@gmail.com</a></li>
             <li><a href="https://www.instagram.com/coutoepedreira/">Instagram</a></li>
           </ul>
         </div>

@@ -22,8 +22,10 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Segurança: o site não usa scripts nem recursos de fora -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <!-- Segurança: o site não usa scripts, formulários nem recursos de fora.
+       Tudo o que não estiver liberado aqui é bloqueado pelo navegador.
+       Detalhes em SEGURANCA.md. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; frame-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Ícone, cor do navegador no celular, fontes e estilo -->
@@ -74,7 +76,8 @@
         <p class="linha-fina">Um arquivo de análises, ensaios, notas e dossiês sobre Direito, patrimônio, créditos judiciais e economia.</p>
       </div>
       <figure class="abertura-figura">
-        <img src="assets/manifesto-02.jpg" width="1000" height="1333" alt="Homem de costas, sob uma luminária, trabalhando junto à janela ao anoitecer" fetchpriority="high" decoding="async">
+        <img src="assets/biblioteca-abertura.jpg" width="1080" height="1440" alt="Salão do Real Gabinete Português de Leitura, no Rio de Janeiro: três andares de estantes de madeira escura, galerias com gradis de ferro e arcos ogivais no alto" fetchpriority="high" decoding="async">
+        <figcaption class="legenda">Real Gabinete Português de Leitura, no Rio de Janeiro. A placa no centro homenageia Machado de Assis, “antigo leitor desta biblioteca”.</figcaption>
       </figure>
     </header>
 
@@ -100,12 +103,12 @@
           <li class="indice-item">
             <time class="indice-data" datetime="2026-09-27">27 set. 2026</time>
             <div>
-              <a class="indice-titulo" href="edicoes/01.html">Quando o precatório entra no balanço</a>
-              <p class="indice-linha-fina">Um crédito contra o Estado nasce de uma sentença. Quando é vendido, ganha preço, custo de capital e dever de diligência. Este dossiê acompanha o caminho do processo ao balanço.</p>
+              <a class="indice-titulo" href="edicoes/quando-o-precatorio-entra-no-balanco.html">Quando o precatório entra no balanço</a>
+              <p class="indice-linha-fina">Um crédito contra o Estado nasce de uma sentença e, quando é vendido, ganha preço, custo de capital e dever de diligência.</p>
             </div>
             <p class="indice-formato">Dossiê · Ed. 01</p>
             <p class="indice-autoria">Yago do Couto</p>
-            <p class="indice-leitura">21 min</p>
+            <p class="indice-leitura">20 min</p>
           </li>
 
           <!-- MODELO DE ENTRADA
@@ -190,7 +193,7 @@
         <div>
           <p class="rotulo">Contato</p>
           <ul>
-            <li><a href="mailto:coutoepedreira@gmail.com">coutoepedreira@gmail.com</a></li>
+            <li><a href="mailto:coutoepedreiralaw@gmail.com">coutoepedreiralaw@gmail.com</a></li>
             <li><a href="https://www.instagram.com/coutoepedreira/">Instagram</a></li>
           </ul>
         </div>
