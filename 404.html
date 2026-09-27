@@ -1,84 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
-<meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>
-  Página não encontrada | Couto &amp; Pedreira
-</title>
-
-<meta
-  name="robots"
-  content="noindex,nofollow"
->
-
-<link
-  rel="stylesheet"
-  href="/css/style.css"
->
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada · Couto &amp; Pedreira</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="theme-color" content="#EFEAE6">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-
 
 <body>
 
-<header class="site-header site-shell">
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-<div class="masthead">
+  <!-- CABEÇALHO: igual em todas as páginas.
+       As orelhas (à esquerda e à direita do nome) mudam a cada edição. -->
+  <header class="cabecalho">
+    <div class="pagina cabecalho-topo">
+      <p class="orelha orelha-esquerda">Direito, patrimônio<br>e economia</p>
+      <a class="nome" href="/index.html">
+        <span class="nome-marca">Couto &amp; Pedreira</span>
+        <span class="nome-descritor">Advocacia Consultiva</span>
+      </a>
+      <p class="orelha orelha-direita">Edição 01<br>Setembro de 2026</p>
+    </div>
+    <nav class="pagina menu" aria-label="Principal">
+      <ul>
+        <li><a href="/biblioteca.html">Biblioteca</a></li>
+        <li><a href="/edicoes.html">Edições</a></li>
+        <li><a href="/index.html#autores">Autores</a></li>
+        <li><a href="/manifesto.html">Manifesto</a></li>
+        <li><a href="/index.html#escritorio">Escritório</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<a
-  class="brand-name"
-  href="/"
->
-COUTO &amp; PEDREIRA
-</a>
+  <main id="conteudo">
 
-<p class="brand-subtitle">
-Advocacia Consultiva
-</p>
+    <header class="pagina abertura">
+      <div class="trilho">
+        <p class="rotulo">Erro 404</p>
+      </div>
+      <div class="abertura-texto">
+        <h1>Esta página não existe.</h1>
+        <p class="linha-fina">O endereço pode ter mudado. Ou o texto ainda não foi escrito.</p>
+        <p><a class="chamada" href="/">Voltar ao início</a></p>
+        <p><a class="chamada" href="/biblioteca.html">Abrir a Biblioteca</a></p>
+      </div>
+    </header>
 
-</div>
+  </main>
 
-<div class="masthead-rule"></div>
+  <!-- RODAPÉ: a contracapa, com o expediente. Igual em todas as páginas. -->
+  <footer class="rodape">
+    <div class="pagina">
 
-</header>
+      <p class="rodape-frase">Entre o que está escrito e o que precisa ser feito, existe um mundo. É nele que trabalhamos.</p>
 
+      <div class="expediente">
+        <div>
+          <p class="rotulo">Publicação</p>
+          <ul>
+            <li><a href="/biblioteca.html">Biblioteca</a></li>
+            <li><a href="/edicoes.html">Edições</a></li>
+            <li><a href="/manifesto.html">Manifesto</a></li>
+            <li><a href="/metodologia.html">Metodologia</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="rotulo">Expediente</p>
+          <p>Couto &amp; Pedreira<br>Advocacia Consultiva</p>
+          <!-- Nome e inscrição na OAB (Código de Ética, art. 44). -->
+          <p class="inscricao">Yago do Couto <span>OAB/MS 25.837</span></p>
+          <p class="inscricao">Thaiany Pedreira <span>OAB/PE 48.342</span></p>
+        </div>
+        <div>
+          <p class="rotulo">Contato</p>
+          <ul>
+            <li><a href="mailto:coutoepedreira@gmail.com">coutoepedreira@gmail.com</a></li>
+            <li><a href="https://www.instagram.com/coutoepedreira/">Instagram</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="rotulo">Legal</p>
+          <ul>
+            <li><a href="/termos.html">Termos de uso</a></li>
+            <li><a href="/privacidade.html">Política de privacidade</a></li>
+          </ul>
+        </div>
+      </div>
 
-<main class="site-shell">
+      <div class="rodape-base">
+        <p>© 2026 Couto &amp; Pedreira</p>
+        <p>Composto em Newsreader e Montserrat</p>
+      </div>
 
-<section class="internal-hero">
-
-<p class="micro">
-404
-</p>
-
-<h1>
-Essa página<br>
-não existe.
-</h1>
-
-<p class="internal-dek">
-O endereço solicitado não foi encontrado.
-Volte para a página inicial.
-</p>
-
-<a
-  class="edition-link"
-  href="/"
->
-Voltar ao início
-</a>
-
-</section>
-
-</main>
-
+    </div>
+  </footer>
 
 </body>
 </html>

@@ -1,49 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
->
-
+<!-- Mapa do site para buscadores. Ao publicar um texto novo, acrescente
+     um bloco <url> com o endereço dele e a data (AAAA-MM-DD). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>
-      https://coutoepedreira.com.br/
-    </loc>
+    <loc>https://coutoepedreira.com.br/</loc>
+    <lastmod>2026-09-26</lastmod>
   </url>
-
   <url>
-    <loc>
-      https://coutoepedreira.com.br/biblioteca.html
-    </loc>
+    <loc>https://coutoepedreira.com.br/biblioteca.html</loc>
+    <lastmod>2026-09-26</lastmod>
   </url>
-
   <url>
-    <loc>
-      https://coutoepedreira.com.br/edicoes.html
-    </loc>
+    <loc>https://coutoepedreira.com.br/edicoes.html</loc>
+    <lastmod>2026-09-26</lastmod>
   </url>
-
   <url>
-    <loc>
-      https://coutoepedreira.com.br/manifesto.html
-    </loc>
+    <loc>https://coutoepedreira.com.br/manifesto.html</loc>
+    <lastmod>2026-09-26</lastmod>
   </url>
-
   <url>
-    <loc>
-      https://coutoepedreira.com.br/metodologia.html
-    </loc>
+    <loc>https://coutoepedreira.com.br/metodologia.html</loc>
+    <lastmod>2026-09-26</lastmod>
   </url>
-
   <url>
-    <loc>
-      https://coutoepedreira.com.br/termos.html
-    </loc>
+    <loc>https://coutoepedreira.com.br/termos.html</loc>
+    <lastmod>2026-09-25</lastmod>
   </url>
-
   <url>
-    <loc>
-      https://coutoepedreira.com.br/privacidade.html
-    </loc>
+    <loc>https://coutoepedreira.com.br/privacidade.html</loc>
+    <lastmod>2026-09-26</lastmod>
   </url>
-
 </urlset>
