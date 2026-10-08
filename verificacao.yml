@@ -1,0 +1,41 @@
+# Verificação automática do site.
+#
+# Roda sozinha:
+#   - a cada alteração enviada ao GitHub (upload, edição, commit);
+#   - toda segunda-feira de manhã, mesmo sem alteração (pega o security.txt vencendo);
+#   - quando você pedir: aba Actions → "Verificação do site" → "Run workflow".
+#
+# Se encontrar algo fora das regras da casa, a execução fica vermelha e o
+# GitHub manda um e-mail. O site continua no ar: a verificação avisa, não bloqueia.
+# O que ela confere está explicado no começo de .github/verificar_site.py.
+
+name: Verificação do site
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 11 * * 1"   # segundas, 7h17 em Campo Grande (11h17 UTC)
+  workflow_dispatch:
+
+# Só leitura: a verificação não altera nada no repositório.
+permissions:
+  contents: read
+
+concurrency:
+  group: verificacao-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    name: Regras da casa
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Baixar os arquivos do site
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Verificar
+        run: python3 .github/verificar_site.py
