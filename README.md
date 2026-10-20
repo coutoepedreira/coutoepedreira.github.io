@@ -2,7 +2,7 @@
 
 Site editorial de Couto & Pedreira Advocacia Consultiva: Direito, patrimônio, créditos judiciais e economia.
 
-Versão 5.3, outubro de 2026. HTML e CSS puros, sem scripts, sem dependências e sem recursos de fora. Publicado pelo GitHub Pages.
+Versão 5.6, 20 de outubro de 2026. HTML e CSS puros, sem scripts, sem dependências e sem recursos de fora. Publicado pelo GitHub Pages.
 
 ---
 
@@ -11,7 +11,7 @@ Versão 5.3, outubro de 2026. HTML e CSS puros, sem scripts, sem dependências e
 ```
 /
 ├── index.html          Início: capa da edição, Biblioteca, Manifesto, Autores, Escritório
-├── biblioteca.html     Índice de textos e os cinco formatos
+├── biblioteca.html     Índice de textos e os seis formatos
 ├── edicoes.html        Lista de edições (a mais nova primeiro)
 ├── edicoes/
 │   ├── quando-o-precatorio-entra-no-balanco.html   Edição 01, página única
@@ -23,7 +23,9 @@ Versão 5.3, outubro de 2026. HTML e CSS puros, sem scripts, sem dependências e
 ├── 404.html            Página de erro (usa caminhos absolutos, de propósito)
 ├── textos/
 │   ├── modelo.html     MODELO de texto. Copie este arquivo para publicar.
-│   └── o-preco-do-registro.html   Análise: a Resolução BCB nº 346/2023 e o “registro público”
+│   ├── o-preco-do-registro.html   Análise: a Resolução BCB nº 346/2023 e o “registro público”
+│   ├── ganhar-nao-e-receber.html  Guia: precatório e RPV, da sentença ao pagamento
+│   └── o-direito-a-partilha-nao-termina-na-sentenca.html   Interpretação: partilha e perspectiva de gênero
 ├── css/style.css       Toda a aparência do site. Comentado, com índice no topo.
 ├── fonts/              Newsreader e Montserrat, servidas pelo próprio site (+ licenças)
 ├── assets/             Imagens, ícones e a imagem de compartilhamento
@@ -61,6 +63,36 @@ Tudo pode ser feito pelo navegador, no próprio GitHub.
 7. **Troque a capa da página inicial.** A capa mostra sempre o texto mais recente, seja ele qual for. No `index.html`, o bloco `<section class="pagina capa">` (com o comentário `CAPA` acima) leva formato, título, linha fina, assinatura, tempo de leitura, endereço e imagem. Para um texto sem foto, use a figura `capa-grafica` (como na análise *O preço do registro*) ou uma imagem quadrada de 1600 × 1600 px.
 8. **Acrescente o endereço no `sitemap.xml`.**
 9. *Commit changes.* Em um ou dois minutos o texto está no ar.
+
+### Peças dos textos longos (Guia e Interpretação)
+
+O guia *Ganhar não é receber* e a interpretação *O direito à partilha não termina na sentença* trouxeram peças novas, todas no `css/style.css`, seção **18.2**:
+
+- `exemplo`: a caixa com o caso inventado que explica a regra. Leva um `rotulo` (“Exemplo · …”) e um ou mais parágrafos.
+- `citacao-longa`: citação de mais de três linhas, recuada, com a referência ABNT completa no `<footer>`.
+- `tabela-texto`: tabela de texto, com quebra de linha e alinhamento à esquerda. Acrescente `numerica` quando a tabela for de números (alinha à direita e não quebra).
+- `nota-final`: a observação em itálico antes das referências (“Texto informativo…”).
+- Figuras de abertura sem foto: `abertura-passos` (quatro passos numerados, usada no guia) e `abertura-cifra` (um número grande e uma frase, pronta para um próximo texto).
+- Abertura com foto em pé à direita do título: `abertura--retrato`, a mesma peça da Biblioteca. Usada no guia (`assets/guia-ganhar-abertura.jpg`, com os quatro passos logo abaixo) e na interpretação (`assets/interpretacao-partilha-abertura.jpg`), ambas em 3:4, 1080 × 1440 px.
+- Capas da página inicial sem foto: `capa-cifras` (três números no quadro escuro) e `capa-meio` (um número só).
+
+### A cifra sobre a foto (aberturas dos textos)
+
+Toda foto de abertura de texto leva a **aba** com o formato (como nas chamadas do Instagram) e a **cifra**: um número grande que resume o texto e uma linha que diz o que ele é. As fotos institucionais (Biblioteca, Manifesto, Autores, Metodologia) ficam sem nada por cima. Peças no `css/style.css`, seção **18.3**.
+
+```html
+<div class="foto-cifra">
+  <img src="../assets/foto.jpg" width="1080" height="1440" alt="...">
+  <span class="fc-aba" aria-hidden="true">Guia</span>
+  <p class="fc-sobre"><span class="fc-cifra fc-cifra--media">1º de <abbr title="fevereiro">fev.</abbr></span><span class="fc-nota">A linha que explica o número</span></p>
+</div>
+```
+
+- Tamanho da cifra: sem classe extra para números curtos (“18%”); `fc-cifra--meio` para frações (“½”); `fc-cifra--media` para datas e expressões curtas; `fc-cifra--longa` para frases na foto larga das edições.
+- Recorte a foto deixando a pessoa ou o objeto principal **acima** do terço de baixo: é ali que a cifra fica.
+- Em uso: Edição 01 (“R$ 1 milhão ≠ R$ 1 milhão”), *Ganhar não é receber* (“1º de fev.”) e *O direito à partilha não termina na sentença* (“½”, também na capa da página inicial). *O preço do registro* continua com as barras, que já são a arte tipográfica dele.
+
+Para corrigir uma palavra ou um número, edite o HTML direto. Se o texto mudar muito, peça a página nova: ela é gerada de uma vez a partir do texto revisado, com sumário, tempo de leitura e referências conferidos.
 
 ## Como subir arquivos sem perder as pastas
 
@@ -125,7 +157,7 @@ Mude o valor ali e o site inteiro acompanha.
 
 ## Assinaturas e inscrições
 
-- A assinatura é sempre **Yago do Couto** e **Thaiany Pedreira**: na abertura dos textos, no índice da Biblioteca, no sumário das edições e no expediente.
+- A assinatura é sempre **Yago do Couto** e **Thaiany Pedreira**: na abertura dos textos, no índice da Biblioteca, no sumário das edições e no expediente. Texto escrito por um só autor leva só o nome de quem escreveu, também no “Como citar”.
 - No "Como citar", a mesma forma em padrão ABNT: `COUTO, Yago do; PEDREIRA, Thaiany.`
 - As inscrições na OAB (Código de Ética, art. 44) aparecem no expediente, no rodapé de todas as páginas, e embaixo do nome de cada autor na página inicial: Yago do Couto, OAB/MS 25.837; Thaiany Pedreira, OAB/PE 48.342.
 
