@@ -1,6 +1,6 @@
 /* ==========================================================================
    COUTO & PEDREIRA · folha de estilo
-   Versão 4.3 · outubro de 2026
+   Versão 4.4 · novembro de 2026
 
    Como ler este arquivo
    ---------------------
@@ -33,6 +33,7 @@
    18.1 Página de análise
    18.2 Guia e interpretação
    18.3 Cifra sobre a foto
+   18.4 Texto justificado e autoria em dupla
    19. Impressão
    ========================================================================== */
 
@@ -2806,6 +2807,66 @@ html {
   text-transform: uppercase;
   color: var(--areia);
 }
+
+/* --------------------------------------------------------------------------
+   18.4 TEXTO JUSTIFICADO E AUTORIA EM DUPLA
+   Estreados no ensaio "O casamento começa antes do altar" (novembro de 2026).
+
+   Texto justificado: acrescente a classe "justificado" ao
+   <div class="texto-corpo">. O parágrafo vai de margem a margem e as
+   palavras se partem nas sílabas do português (quem ensina isso ao
+   navegador é o lang="pt-BR" da página). Justifica-se o texto, não o
+   aparato: intertítulos, olhos, rótulos, autoria, referências e o
+   "Como citar" seguem alinhados à esquerda, porque lista de referência
+   justificada abre buracos entre as palavras.
+   -------------------------------------------------------------------------- */
+
+.justificado > p:not(.olho),
+.justificado .exemplo p:not(.rotulo) {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 6 3 2;
+}
+
+/* Título na medida: o corpo do título acompanha a largura da coluna dele,
+   e não só a da tela. Serve aos títulos com palavra longa ("casamento"),
+   que em corpo cheio quebram palavra por palavra ou invadem a foto ao
+   lado entre 1024 e 1280 px. Vai no <div class="abertura-texto">.
+   17cqi: cabem cerca de 5,8 em por linha. */
+.titulo-na-medida {
+  container-type: inline-size;
+}
+
+.edicao-pagina .titulo-na-medida h1 {
+  font-size: min(var(--t-capa), 17cqi);
+}
+
+/* Autoria em dupla: as duas fichas vêm juntas, sob um rótulo, com o
+   mesmo fio forte das referências. */
+.autoria {
+  margin-top: 3.5em;
+  padding-top: 1rem;
+  border-top: 1px solid var(--tinta);
+}
+
+.texto-corpo .autoria h2 {
+  margin-top: 0;
+  font-size: var(--t-rotulo);
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+}
+
+.autoria .sobre-autor {
+  margin-top: 1.25rem;
+}
+
+.autoria h2 + .sobre-autor {
+  padding-top: 0;
+  border-top: 0;
+}
+
 
 /* --------------------------------------------------------------------------
    19. IMPRESSÃO

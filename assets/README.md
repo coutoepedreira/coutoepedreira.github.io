@@ -13,12 +13,14 @@ Imagens usadas no site da Couto & Pedreira.
 | `biblioteca-abertura.jpg` | Abertura da Biblioteca (Real Gabinete Português de Leitura) | 3:4, 1080 × 1440 px |
 | `guia-ganhar-abertura.jpg` | Abertura de *Ganhar não é receber* | 3:4, 1080 × 1440 px |
 | `interpretacao-partilha-abertura.jpg` | Abertura de *O direito à partilha não termina na sentença* | 3:4, 1080 × 1440 px |
-| `interpretacao-partilha-capa.jpg` | Capa da página inicial (texto da Thaiany Pedreira) | 1:1, 1400 × 1400 px |
+| `interpretacao-partilha-capa.jpg` | Capa da página inicial até 16 nov. 2026 (texto da Thaiany Pedreira). Fora da capa, pode ficar guardada | 1:1, 1400 × 1400 px |
+| `ensaio-casamento-abertura.jpg` | Abertura de *O casamento começa antes do altar* (foto de Sinitta Leunen / Unsplash) | 3:4, 1080 × 1440 px |
+| `ensaio-casamento-capa.jpg` | Capa da página inicial (o ensaio, desde 17 nov. 2026) | 1:1, 1400 × 1400 px |
 | `manifesto-02.jpg` | Não é mais usada. Pode apagar. | — |
 | `manifesto-01.jpg` | Abertura da Metodologia | 21:9, em preto e branco |
 | `yago-do-couto.jpg`, `thaiany-pedreira.jpg` | Autores (início) | 3:4, em preto e branco |
 | `og-capa.jpg` | Prévia ao compartilhar o link (WhatsApp, LinkedIn) | 1200 × 630 px |
-| `guia-ganhar-nao-e-receber-og.jpg`, `interpretacao-o-direito-a-partilha-og.jpg`, `analise-o-preco-do-registro-og.jpg` | Prévia ao compartilhar cada texto | 1200 × 630 px |
+| `guia-ganhar-nao-e-receber-og.jpg`, `interpretacao-o-direito-a-partilha-og.jpg`, `analise-o-preco-do-registro-og.jpg`, `ensaio-o-casamento-comeca-antes-do-altar-og.jpg` | Prévia ao compartilhar cada texto | 1200 × 630 px |
 | `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` | Ícone da aba e da tela inicial do celular | quadrado |
 
 Regras para imagens novas:

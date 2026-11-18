@@ -25,7 +25,8 @@ Versão 5.6, 20 de outubro de 2026. HTML e CSS puros, sem scripts, sem dependên
 │   ├── modelo.html     MODELO de texto. Copie este arquivo para publicar.
 │   ├── o-preco-do-registro.html   Análise: a Resolução BCB nº 346/2023 e o “registro público”
 │   ├── ganhar-nao-e-receber.html  Guia: precatório e RPV, da sentença ao pagamento
-│   └── o-direito-a-partilha-nao-termina-na-sentenca.html   Interpretação: partilha e perspectiva de gênero
+│   ├── o-direito-a-partilha-nao-termina-na-sentenca.html   Interpretação: partilha e perspectiva de gênero
+│   └── o-casamento-comeca-antes-do-altar.html   Ensaio: compliance matrimonial e autonomia patrimonial
 ├── css/style.css       Toda a aparência do site. Comentado, com índice no topo.
 ├── fonts/              Newsreader e Montserrat, servidas pelo próprio site (+ licenças)
 ├── assets/             Imagens, ícones e a imagem de compartilhamento
@@ -76,6 +77,14 @@ O guia *Ganhar não é receber* e a interpretação *O direito à partilha não 
 - Abertura com foto em pé à direita do título: `abertura--retrato`, a mesma peça da Biblioteca. Usada no guia (`assets/guia-ganhar-abertura.jpg`, com os quatro passos logo abaixo) e na interpretação (`assets/interpretacao-partilha-abertura.jpg`), ambas em 3:4, 1080 × 1440 px.
 - Capas da página inicial sem foto: `capa-cifras` (três números no quadro escuro) e `capa-meio` (um número só).
 
+### Peças do ensaio (texto justificado)
+
+O ensaio *O casamento começa antes do altar* trouxe três peças, no `css/style.css`, seção **18.4**:
+
+- `justificado`: acrescente ao `<div class="texto-corpo">` para o texto ir de margem a margem, com as palavras partidas nas sílabas do português. Justifica só o texto corrido e a caixa de exemplo; títulos, olhos, autoria, referências e "Como citar" continuam alinhados à esquerda.
+- `titulo-na-medida`: acrescente ao `<div class="abertura-texto">` quando o título tiver uma palavra longa. O título passa a acompanhar a largura da própria coluna e não quebra palavra por palavra nem invade a foto.
+- `autoria`: o bloco "Sobre os autores", para textos assinados a quatro mãos. Leva um rótulo e uma `sobre-autor` para cada autor.
+
 ### A cifra sobre a foto (aberturas dos textos)
 
 Toda foto de abertura de texto leva a **aba** com o formato (como nas chamadas do Instagram) e a **cifra**: um número grande que resume o texto e uma linha que diz o que ele é. As fotos institucionais (Biblioteca, Manifesto, Autores, Metodologia) ficam sem nada por cima. Peças no `css/style.css`, seção **18.3**.
@@ -90,7 +99,7 @@ Toda foto de abertura de texto leva a **aba** com o formato (como nas chamadas d
 
 - Tamanho da cifra: sem classe extra para números curtos (“18%”); `fc-cifra--meio` para frações (“½”); `fc-cifra--media` para datas e expressões curtas; `fc-cifra--longa` para frases na foto larga das edições.
 - Recorte a foto deixando a pessoa ou o objeto principal **acima** do terço de baixo: é ali que a cifra fica.
-- Em uso: Edição 01 (“R$ 1 milhão ≠ R$ 1 milhão”), *Ganhar não é receber* (“1º de fev.”) e *O direito à partilha não termina na sentença* (“½”, também na capa da página inicial). *O preço do registro* continua com as barras, que já são a arte tipográfica dele.
+- Em uso: Edição 01 (“R$ 1 milhão ≠ R$ 1 milhão”), *Ganhar não é receber* (“1º de fev.”) e *O direito à partilha não termina na sentença* (“½”) e *O casamento começa antes do altar* (“6 meses”, também na capa da página inicial). *O preço do registro* continua com as barras, que já são a arte tipográfica dele.
 
 Para corrigir uma palavra ou um número, edite o HTML direto. Se o texto mudar muito, peça a página nova: ela é gerada de uma vez a partir do texto revisado, com sumário, tempo de leitura e referências conferidos.
 
