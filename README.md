@@ -24,7 +24,7 @@ Versão 5.6, 20 de outubro de 2026. HTML e CSS puros, sem scripts, sem dependên
 ├── textos/
 │   ├── modelo.html     MODELO de texto. Copie este arquivo para publicar.
 │   ├── o-preco-do-registro.html   Análise: a Resolução BCB nº 346/2023 e o “registro público”
-│   ├── ganhar-nao-e-receber.html  Guia: precatório e RPV, da sentença ao pagamento
+│   ├── ganhar-nao-e-receber.html  Análise: precatório e RPV, da sentença ao pagamento
 │   ├── o-direito-a-partilha-nao-termina-na-sentenca.html   Interpretação: partilha e perspectiva de gênero
 │   └── o-casamento-comeca-antes-do-altar.html   Ensaio: compliance matrimonial e autonomia patrimonial
 ├── css/style.css       Toda a aparência do site. Comentado, com índice no topo.
@@ -65,16 +65,16 @@ Tudo pode ser feito pelo navegador, no próprio GitHub.
 8. **Acrescente o endereço no `sitemap.xml`.**
 9. *Commit changes.* Em um ou dois minutos o texto está no ar.
 
-### Peças dos textos longos (Guia e Interpretação)
+### Peças dos textos longos (Análise e Interpretação)
 
-O guia *Ganhar não é receber* e a interpretação *O direito à partilha não termina na sentença* trouxeram peças novas, todas no `css/style.css`, seção **18.2**:
+A análise *Ganhar não é receber* e a interpretação *O direito à partilha não termina na sentença* trouxeram peças novas, todas no `css/style.css`, seção **18.2**:
 
 - `exemplo`: a caixa com o caso inventado que explica a regra. Leva um `rotulo` (“Exemplo · …”) e um ou mais parágrafos.
 - `citacao-longa`: citação de mais de três linhas, recuada, com a referência ABNT completa no `<footer>`.
 - `tabela-texto`: tabela de texto, com quebra de linha e alinhamento à esquerda. Acrescente `numerica` quando a tabela for de números (alinha à direita e não quebra).
 - `nota-final`: a observação em itálico antes das referências (“Texto informativo…”).
-- Figuras de abertura sem foto: `abertura-passos` (quatro passos numerados, usada no guia) e `abertura-cifra` (um número grande e uma frase, pronta para um próximo texto).
-- Abertura com foto em pé à direita do título: `abertura--retrato`, a mesma peça da Biblioteca. Usada no guia (`assets/guia-ganhar-abertura.jpg`, com os quatro passos logo abaixo) e na interpretação (`assets/interpretacao-partilha-abertura.jpg`), ambas em 3:4, 1080 × 1440 px.
+- Figuras de abertura sem foto: `abertura-passos` (quatro passos numerados, usada em *Ganhar não é receber*) e `abertura-cifra` (um número grande e uma frase, pronta para um próximo texto).
+- Abertura com foto em pé à direita do título: `abertura--retrato`, a mesma peça da Biblioteca. Usada em *Ganhar não é receber* (`assets/guia-ganhar-abertura.jpg`, com os quatro passos logo abaixo) e na interpretação (`assets/interpretacao-partilha-abertura.jpg`), ambas em 3:4, 1080 × 1440 px.
 - Capas da página inicial sem foto: `capa-cifras` (três números no quadro escuro) e `capa-meio` (um número só).
 
 ### Peças do ensaio (texto justificado)
@@ -92,7 +92,7 @@ Toda foto de abertura de texto leva a **aba** com o formato (como nas chamadas d
 ```html
 <div class="foto-cifra">
   <img src="../assets/foto.jpg" width="1080" height="1440" alt="...">
-  <span class="fc-aba" aria-hidden="true">Guia</span>
+  <span class="fc-aba" aria-hidden="true">Análise</span>
   <p class="fc-sobre"><span class="fc-cifra fc-cifra--media">1º de <abbr title="fevereiro">fev.</abbr></span><span class="fc-nota">A linha que explica o número</span></p>
 </div>
 ```

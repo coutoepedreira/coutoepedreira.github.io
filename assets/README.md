@@ -21,7 +21,7 @@ Imagens usadas no site da Couto & Pedreira.
 | `yago-do-couto.jpg`, `thaiany-pedreira.jpg` | Autores (início) | 3:4, em preto e branco |
 | `og-capa.jpg` | Prévia ao compartilhar o link (WhatsApp, LinkedIn) | 1200 × 630 px |
 | `guia-ganhar-nao-e-receber-og.jpg`, `interpretacao-o-direito-a-partilha-og.jpg`, `analise-o-preco-do-registro-og.jpg`, `ensaio-o-casamento-comeca-antes-do-altar-og.jpg` | Prévia ao compartilhar cada texto | 1200 × 630 px |
-| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` | Ícone da aba e da tela inicial do celular | quadrado |
+| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` (e `/favicon.ico`) | Ícone da aba e da tela inicial do celular: o símbolo em Garça sobre Mata, no corte para tamanho pequeno (traço engrossado, mesmo desenho) | quadrado |
 
 Regras para imagens novas:
 

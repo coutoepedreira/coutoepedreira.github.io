@@ -31,7 +31,7 @@
    17. Telas largas (a partir de 1024 px e de 1280 px)
    18. Página da edição
    18.1 Página de análise
-   18.2 Guia e interpretação
+   18.2 Análise longa e interpretação
    18.3 Cifra sobre a foto
    18.4 Texto justificado e autoria em dupla
    19. Impressão
@@ -2461,7 +2461,7 @@ html {
 
 
 /* --------------------------------------------------------------------------
-   18.2 GUIA E INTERPRETAÇÃO
+   18.2 ANÁLISE LONGA E INTERPRETAÇÃO
    Textos escritos em marcação simples (build.py, rodada de 19 out. 2026):
    figuras de abertura tipográficas, caixas de exemplo, citação longa e
    capas da página inicial feitas só de letra.
@@ -2519,7 +2519,7 @@ html {
   color: var(--papel);
 }
 
-/* Abertura do guia: o caminho em quatro tempos, numerados à suíça. */
+/* Abertura de "Ganhar não é receber": o caminho em quatro tempos, numerados à suíça. */
 .abertura-passos {
   margin-top: clamp(2.5rem, 5vw, 4rem);
 }
@@ -2647,7 +2647,7 @@ html {
   font-weight: 500;
 }
 
-/* Tabelas do guia: a primeira coluna nomeia, as outras informam. Quem rola
+/* Tabelas da análise longa: a primeira coluna nomeia, as outras informam. Quem rola
    de lado é só a tabela; o título e a fonte ficam parados. */
 .tabela-editorial.tabela-texto {
   overflow-x: visible;
