@@ -6,6 +6,11 @@ Versão 5.6, 20 de outubro de 2026. HTML e CSS puros, sem scripts, sem dependên
 
 ---
 
+
+## Versão 5 · direção “Voz baixa” (novembro de 2026)
+
+O site foi redesenhado para ficar mais sóbrio: a identidade está na tipografia, no espaço em branco e no fio fino, sem formas nem ornamentos, só com a paleta original. O cabeçalho usa a assinatura oficial (`assets/marca/assinatura-horizontal.svg`) e perdeu as orelhas; o rodapé é Rio à noite, com a assinatura vertical (`assets/marca/assinatura-vertical-escuro.svg`). Todas as fotos aparecem em preto e branco pelo próprio CSS (seção 07): não é preciso tratar o arquivo. O link da folha de estilo leva `?v=5` para o navegador buscar a versão nova.
+
 ## O que tem em cada pasta
 
 ```
@@ -61,13 +66,13 @@ Tudo pode ser feito pelo navegador, no próprio GitHub.
    - `referencias`: lista ABNT.
    - `como-citar`: a referência do próprio texto, para quem for citá-lo.
 6. **Acrescente o texto no índice** da `biblioteca.html`: copie o bloco comentado `MODELO DE ENTRADA`, cole logo abaixo da linha `indice-cabeca` e preencha. Apague a linha "Ainda não há textos publicados" quando entrar o primeiro.
-7. **Troque a capa da página inicial.** A capa mostra sempre o texto mais recente, seja ele qual for. No `index.html`, o bloco `<section class="pagina capa">` (com o comentário `CAPA` acima) leva formato, título, linha fina, assinatura, tempo de leitura, endereço e imagem. Para um texto sem foto, use a figura `capa-grafica` (como na análise *O preço do registro*) ou uma imagem quadrada de 1600 × 1600 px.
+7. **Troque a capa da página inicial.** A capa mostra sempre o texto mais recente, seja ele qual for. No `index.html`, o bloco `<section class="pagina capa">` (com o comentário `CAPA` acima) leva formato, título, linha fina, assinatura, tempo de leitura, endereço e imagem. Logo abaixo, a seção `BIBLIOTECA` mostra os quatro textos seguintes: o que saiu da capa entra em primeiro lugar e o último da lista sai. Para um texto sem foto, use a figura `capa-grafica` (como na análise *O preço do registro*) ou uma imagem quadrada de 1600 × 1600 px.
 8. **Acrescente o endereço no `sitemap.xml`.**
 9. *Commit changes.* Em um ou dois minutos o texto está no ar.
 
 ### Peças dos textos longos (Análise e Interpretação)
 
-A análise *Ganhar não é receber* e a interpretação *O direito à partilha não termina na sentença* trouxeram peças novas, todas no `css/style.css`, seção **18.2**:
+A análise *Ganhar não é receber* e a interpretação *O direito à partilha não termina na sentença* trouxeram peças novas, todas no `css/style.css`, seção **16.2**:
 
 - `exemplo`: a caixa com o caso inventado que explica a regra. Leva um `rotulo` (“Exemplo · …”) e um ou mais parágrafos.
 - `citacao-longa`: citação de mais de três linhas, recuada, com a referência ABNT completa no `<footer>`.
@@ -79,15 +84,15 @@ A análise *Ganhar não é receber* e a interpretação *O direito à partilha n
 
 ### Peças do ensaio (texto justificado)
 
-O ensaio *O casamento começa antes do altar* trouxe três peças, no `css/style.css`, seção **18.4**:
+O ensaio *O casamento começa antes do altar* trouxe três peças, no `css/style.css`, seção **16.4**:
 
 - `justificado`: acrescente ao `<div class="texto-corpo">` para o texto ir de margem a margem, com as palavras partidas nas sílabas do português. Justifica só o texto corrido e a caixa de exemplo; títulos, olhos, autoria, referências e "Como citar" continuam alinhados à esquerda.
 - `titulo-na-medida`: acrescente ao `<div class="abertura-texto">` quando o título tiver uma palavra longa. O título passa a acompanhar a largura da própria coluna e não quebra palavra por palavra nem invade a foto.
 - `autoria`: o bloco "Sobre os autores", para textos assinados a quatro mãos. Leva um rótulo e uma `sobre-autor` para cada autor.
 
-### A cifra sobre a foto (aberturas dos textos)
+### A cifra da foto (aberturas dos textos)
 
-Toda foto de abertura de texto leva a **aba** com o formato (como nas chamadas do Instagram) e a **cifra**: um número grande que resume o texto e uma linha que diz o que ele é. As fotos institucionais (Biblioteca, Manifesto, Autores, Metodologia) ficam sem nada por cima. Peças no `css/style.css`, seção **18.3**.
+Toda foto de abertura de texto pode levar a **cifra**: um número que resume o texto e uma linha que diz o que ele é. Desde a versão 5 a foto fica limpa e a cifra aparece logo abaixo dela, como legenda; a aba com o formato continua no código, mas não aparece. As fotos institucionais (Biblioteca, Manifesto, Autores, Metodologia) não levam cifra. Peças no `css/style.css`, seções **16.3** e **17**.
 
 ```html
 <div class="foto-cifra">
@@ -97,7 +102,7 @@ Toda foto de abertura de texto leva a **aba** com o formato (como nas chamadas d
 </div>
 ```
 
-- Tamanho da cifra: sem classe extra para números curtos (“18%”); `fc-cifra--meio` para frações (“½”); `fc-cifra--media` para datas e expressões curtas; `fc-cifra--longa` para frases na foto larga das edições.
+- As classes de tamanho (`fc-cifra--meio`, `fc-cifra--media`, `fc-cifra--longa`) podem ficar no HTML; na versão 5 todas as cifras têm o mesmo tamanho, discreto.
 - Recorte a foto deixando a pessoa ou o objeto principal **acima** do terço de baixo: é ali que a cifra fica.
 - Em uso: Edição 01 (“R$ 1 milhão ≠ R$ 1 milhão”), *Ganhar não é receber* (“1º de fev.”) e *O direito à partilha não termina na sentença* (“½”) e *O casamento começa antes do altar* (“6 meses”, também na capa da página inicial). *O preço do registro* continua com as barras, que já são a arte tipográfica dele.
 
@@ -132,12 +137,11 @@ Cada edição é uma página única, e o nome do arquivo é o endereço que apar
    - `grafico`: gráfico em SVG, com uma versão larga e outra estreita (celular);
    - `lista-fina`, `lista-numerada`, `cadeia`, `mapa-riscos`, `sequencia`, `tres-valores`;
    - `em-aberto`: a caixa com as perguntas que ficam para depois (vem logo abaixo do intertítulo numerado);
-   - `fim`: no último parágrafo do fecho, desenha o quadradinho terracota que encerra a edição.
+   - `fim`: no último parágrafo do fecho, desenha o quadradinho na cor da tinta que encerra a edição.
 6. **Anuncie a edição** no resto do site:
    - `index.html`: troque a capa (número, título, linha fina, assinatura, tempo de leitura, link e imagem quadrada, 1600 × 1600 px);
    - `edicoes.html`: copie o bloco `<section ... id="edicao-01">`, cole **acima** dele e troque os dados;
    - `biblioteca.html`: acrescente a entrada no índice, no topo;
-   - **todas as páginas**: troque a orelha direita do cabeçalho (`Edição 01 / Setembro de 2026`);
    - `sitemap.xml`: acrescente o endereço da edição.
 7. **Imagem de compartilhamento:** `assets/edicao-02-og.jpg` (1200 × 630 px) para a edição e, se quiser, a mesma imagem como `assets/og-capa.jpg`, que vale para o site inteiro.
 
@@ -147,7 +151,7 @@ Tempo de leitura = palavras do texto ÷ 200, arredondado para cima.
 
 Abra `css/style.css`. A seção **02. Variáveis** concentra tudo:
 
-- **Cores:** `--papel`, `--tinta`, `--verde`, `--terracota`, `--areia`. Os números de contraste estão no comentário. A areia não pode ser usada como texto sobre o papel (contraste 2,5:1).
+- **Cores:** a paleta original, com os nomes da marca: `--garca`, `--rio`, `--mata`, `--vazante`, `--barranco`. Os números de contraste estão no comentário. A Vazante não pode ser usada como texto sobre o papel (contraste 2,5:1); fica no símbolo, nos fios e no rodapé escuro. O Barranco só aparece em dados de gráficos. Os nomes antigos (`--papel`, `--tinta`, `--verde`, `--terracota`, `--areia`) continuam valendo para os componentes da seção 16.
 - **Tipos:** `--t-texto` (texto corrido), `--t-h1`, `--t-capa` etc. Cada um vai de um piso (celular) a um teto (tela grande).
 - **Medidas:** `--medida` (largura da linha de texto, cerca de 66 caracteres), `--trilho` (coluna da margem), `--respiro` (espaço entre seções).
 
@@ -159,7 +163,7 @@ Mude o valor ali e o site inteiro acompanha.
 - Nenhum script e nenhum recurso de outro domínio (fontes, analytics, vídeos). Se um dia precisar, a Política de Privacidade tem de ser revista antes.
 - Imagens: veja `assets/README.md`.
 - O menu e o rodapé se repetem em todas as páginas. Se mudar um item, mude em todos os arquivos (a busca do GitHub, tecla `t`, ajuda a achar).
-- A página atual do menu é marcada com `aria-current="page"`. É isso que desenha o fio terracota embaixo da palavra.
+- A página atual do menu é marcada com `aria-current="page"`. É isso que desenha o fio Vazante embaixo da palavra.
 - O e-mail de contato é **coutoepedreiralaw@gmail.com**. Se um dia mudar, troque em todas as páginas, no `.well-known/security.txt` e na linha `EMAILS_OFICIAIS` de `.github/verificar_site.py`.
 - Depois de cada alteração, confira o ✓ verde ao lado do commit no GitHub. Se aparecer um ✗ vermelho, a verificação automática diz o arquivo, a linha e o que corrigir (veja `SEGURANCA.md`).
 - Nunca suba documentos de trabalho (`.docx`, `.xlsx`, `.pdf` de cliente) para o repositório: tudo o que está nele fica público na internet.

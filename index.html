@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Couto &amp; Pedreira · Direito, patrimônio e economia</title>
-  <meta name="description" content="Publicação de Couto &amp; Pedreira Advocacia Consultiva. Interpretação: O direito à partilha não termina na sentença.">
+  <meta name="description" content="Publicação de Couto &amp; Pedreira Advocacia Consultiva sobre Direito, patrimônio e economia. Em destaque, o ensaio O casamento começa antes do altar.">
   <link rel="canonical" href="https://coutoepedreira.com.br/">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Couto &amp; Pedreira Advocacia Consultiva">
@@ -15,7 +15,7 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Couto &amp; Pedreira · Direito, patrimônio e economia">
-  <meta property="og:description" content="Publicação de Couto &amp; Pedreira Advocacia Consultiva. Interpretação: O direito à partilha não termina na sentença.">
+  <meta property="og:description" content="Publicação de Couto &amp; Pedreira Advocacia Consultiva sobre Direito, patrimônio e economia. Em destaque, o ensaio O casamento começa antes do altar.">
   <meta property="og:url" content="https://coutoepedreira.com.br/">
   <meta property="og:image" content="https://coutoepedreira.com.br/assets/og-capa.jpg">
   <meta property="og:image:width" content="1200">
@@ -35,46 +35,40 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="fonts/newsreader-romano.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=5">
 </head>
 
 <body>
 
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- CABEÇALHO: igual em todas as páginas.
-       As orelhas (à esquerda e à direita do nome) mudam a cada edição. -->
+  <!-- CABEÇALHO: igual em todas as páginas. A assinatura oficial
+       fica em assets/marca/. O aria-current marca a página aberta. -->
   <header class="cabecalho">
     <div class="pagina cabecalho-topo">
-      <p class="orelha orelha-esquerda">Direito, patrimônio<br>e economia</p>
-      <a class="nome" href="index.html" aria-current="page">
-        <span class="nome-marca">Couto &amp; Pedreira</span>
-        <span class="nome-descritor">Advocacia Consultiva</span>
-      </a>
-      <p class="orelha orelha-direita">Edição 01<br>Setembro de 2026</p>
+      <a class="marca" href="index.html" aria-current="page"><img src="assets/marca/assinatura-horizontal.svg" width="280" height="41" alt="Couto &amp; Pedreira Advocacia Consultiva"></a>
+      <nav class="menu" aria-label="Principal">
+        <ul>
+          <li><a href="biblioteca.html">Biblioteca</a></li>
+          <li><a href="edicoes.html">Edições</a></li>
+          <li><a href="index.html#autores">Autores</a></li>
+          <li><a href="manifesto.html">Manifesto</a></li>
+          <li><a href="index.html#escritorio">Escritório</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav class="pagina menu" aria-label="Principal">
-      <ul>
-        <li><a href="biblioteca.html">Biblioteca</a></li>
-        <li><a href="edicoes.html">Edições</a></li>
-        <li><a href="index.html#autores">Autores</a></li>
-        <li><a href="manifesto.html">Manifesto</a></li>
-        <li><a href="index.html#escritorio">Escritório</a></li>
-      </ul>
-    </nav>
   </header>
 
   <main id="conteudo">
 
     <h1 class="visualmente-oculto">Couto &amp; Pedreira: publicação sobre Direito, patrimônio e economia</h1>
 
-    <!-- CAPA: o texto mais recente. É gerada pela lista PUBLICACOES do build.py.
-         Editando à mão: troque formato, título, linha fina, leitura, endereço e imagem. -->
+    <!-- CAPA: o texto mais recente. Para trocar, mude o chapéu (formato,
+         edição e mês), o título, a linha fina, a assinatura, a leitura,
+         os dois endereços e a foto. -->
     <section class="pagina capa" aria-labelledby="capa-titulo">
       <div class="capa-texto">
-        <div class="capa-topo">
-          <p class="chapeu">Ensaio · Edição 01 · Novembro de 2026</p>
-        </div>
+        <p class="chapeu">Ensaio&nbsp;· Edição 01&nbsp;· Novembro de 2026</p>
         <div>
           <h2 class="titulo-capa" id="capa-titulo"><a class="capa-link" href="textos/o-casamento-comeca-antes-do-altar.html">O casamento começa antes do altar</a></h2>
           <p class="linha-fina">Compliance matrimonial, autonomia patrimonial e a construção de uma cultura de prevenção nas relações familiares</p>
@@ -84,48 +78,65 @@
         </div>
       </div>
       <figure class="capa-imagem">
-        <a class="foto-cifra" href="textos/o-casamento-comeca-antes-do-altar.html" tabindex="-1" aria-hidden="true">
-          <img src="assets/ensaio-casamento-capa.jpg" width="1400" height="1400" alt="Noiva de vestido branco segura um buquê de flores secas e dá a mão ao noivo, de terno azul-marinho, ao lado de uma porta antiga" fetchpriority="high" decoding="async">
-          <span class="fc-aba">Ensaio</span>
-          <span class="fc-sobre"><span class="fc-cifra fc-cifra--media">6 meses</span><span class="fc-nota">Faltam seis meses para o casamento</span></span>
-        </a>
+        <a href="textos/o-casamento-comeca-antes-do-altar.html" tabindex="-1" aria-hidden="true"><img src="assets/ensaio-casamento-capa.jpg" width="1400" height="1400" alt="Noiva de vestido branco segura um buquê de flores secas e dá a mão ao noivo, de terno azul-marinho, ao lado de uma porta antiga" fetchpriority="high" decoding="async"></a>
+        <figcaption class="legenda">Imagem ilustrativa. Foto: Sinitta Leunen / Unsplash.</figcaption>
       </figure>
     </section>
 
-    <!-- BIBLIOTECA -->
+    <!-- BIBLIOTECA: os quatro textos seguintes, na mesma ordem do índice.
+         Quando um texto novo for para a capa, o que estava nela entra aqui
+         em primeiro lugar e o último da lista sai. -->
     <section class="pagina secao" id="biblioteca" aria-labelledby="biblioteca-titulo">
       <div class="trilho">
         <p class="rotulo">Biblioteca</p>
-        <p class="trilho-nota">O arquivo abre com a Edição 01.</p>
+        <p class="trilho-nota">Do mais recente ao mais antigo</p>
       </div>
       <div class="corpo">
         <h2 class="titulo-secao" id="biblioteca-titulo">Ideias que permanecem.</h2>
-        <p class="linha-fina">Um arquivo de análises, ensaios, notas e dossiês sobre Direito, patrimônio, créditos judiciais e economia.</p>
-        <ol class="formatos">
-          <li>
-            <h3 class="formato-nome">Nota</h3>
-            <p class="formato-descricao">Um fato, uma decisão ou uma mudança: o que aconteceu e por que importa.</p>
-            <p class="formato-medida">300–700 palavras · 2–4 min</p>
+        <p class="linha-fina">Análises, ensaios, notas e dossiês sobre Direito, patrimônio, créditos judiciais e economia. Escritos para ler com calma e consultar depois.</p>
+        <ol class="indice indice--curto">
+          <li class="indice-item">
+            <time class="indice-data" datetime="2026-10-20">20 out. 2026</time>
+            <div>
+              <a class="indice-titulo" href="textos/o-direito-a-partilha-nao-termina-na-sentenca.html">O direito à partilha não termina na sentença</a>
+              <p class="indice-linha-fina">Uma decisão de Vila Velha mostra que reconhecer um direito patrimonial e conseguir exercê-lo são coisas diferentes.</p>
+            </div>
+            <p class="indice-formato">Interpretação&nbsp;· Ed. 01</p>
+            <p class="indice-autoria">Thaiany Pedreira</p>
+            <p class="indice-leitura">8 min</p>
           </li>
-          <li>
-            <h3 class="formato-nome">Interpretação</h3>
-            <p class="formato-descricao">Um texto normativo ou uma decisão, lidos de perto.</p>
-            <p class="formato-medida">800–1.500 palavras · 4–8 min</p>
+
+          <li class="indice-item">
+            <time class="indice-data" datetime="2026-10-20">20 out. 2026</time>
+            <div>
+              <a class="indice-titulo" href="textos/ganhar-nao-e-receber.html">Ganhar não é receber</a>
+              <p class="indice-linha-fina">Da sentença ao dinheiro na conta: como funcionam o precatório e a RPV, e o que conferir enquanto o pagamento não chega.</p>
+            </div>
+            <p class="indice-formato">Análise&nbsp;· Ed. 01</p>
+            <p class="indice-autoria">Yago do Couto</p>
+            <p class="indice-leitura">18 min</p>
           </li>
-          <li>
-            <h3 class="formato-nome">Análise</h3>
-            <p class="formato-descricao">Um problema jurídico ou econômico, da pergunta à conclusão, com base legal, exemplos e números.</p>
-            <p class="formato-medida">2.000–6.500 palavras · 10–33 min</p>
+
+          <li class="indice-item">
+            <time class="indice-data" datetime="2026-10-03">3 out. 2026</time>
+            <div>
+              <a class="indice-titulo" href="textos/o-preco-do-registro.html">O preço do registro</a>
+              <p class="indice-linha-fina">A Resolução BCB nº&nbsp;346/2023, o risco jurídico dos precatórios e o sentido de “registro público” no cálculo do capital regulatório.</p>
+            </div>
+            <p class="indice-formato">Análise&nbsp;· Ed. 01</p>
+            <p class="indice-autoria">Yago do Couto</p>
+            <p class="indice-leitura">31 min</p>
           </li>
-          <li>
-            <h3 class="formato-nome">Ensaio</h3>
-            <p class="formato-descricao">Uma ideia defendida com argumento, e com lugar para a dúvida.</p>
-            <p class="formato-medida">1.500–3.500 palavras · 8–18 min</p>
-          </li>
-          <li>
-            <h3 class="formato-nome">Dossiê</h3>
-            <p class="formato-descricao">Um tema inteiro: normas, dados, jurisprudência e consequências.</p>
-            <p class="formato-medida">4.000–8.000 palavras · 20–40 min</p>
+
+          <li class="indice-item">
+            <time class="indice-data" datetime="2026-09-27">27 set. 2026</time>
+            <div>
+              <a class="indice-titulo" href="edicoes/quando-o-precatorio-entra-no-balanco.html">Quando o precatório entra no balanço</a>
+              <p class="indice-linha-fina">Um crédito contra o Estado nasce de uma sentença e, quando é vendido, ganha preço, custo de capital e dever de diligência.</p>
+            </div>
+            <p class="indice-formato">Dossiê&nbsp;· Ed. 01</p>
+            <p class="indice-autoria">Yago do Couto</p>
+            <p class="indice-leitura">20 min</p>
           </li>
         </ol>
         <a class="chamada" href="biblioteca.html">Abrir a Biblioteca</a>
@@ -228,7 +239,10 @@
   <footer class="rodape">
     <div class="pagina">
 
-      <p class="rodape-frase">Entre o que está escrito e o que precisa ser feito, existe um mundo. É nele que trabalhamos.</p>
+      <div class="rodape-topo">
+        <p class="rodape-marca"><img src="assets/marca/assinatura-vertical-escuro.svg" width="180" height="80" alt="Couto &amp; Pedreira Advocacia Consultiva"></p>
+        <p class="rodape-frase">Entre o que está escrito e o que precisa ser feito, existe um mundo. É nele que trabalhamos.</p>
+      </div>
 
       <div class="expediente">
         <div>

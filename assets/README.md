@@ -21,15 +21,19 @@ Imagens usadas no site da Couto & Pedreira.
 | `yago-do-couto.jpg`, `thaiany-pedreira.jpg` | Autores (início) | 3:4, em preto e branco |
 | `og-capa.jpg` | Prévia ao compartilhar o link (WhatsApp, LinkedIn) | 1200 × 630 px |
 | `guia-ganhar-nao-e-receber-og.jpg`, `interpretacao-o-direito-a-partilha-og.jpg`, `analise-o-preco-do-registro-og.jpg`, `ensaio-o-casamento-comeca-antes-do-altar-og.jpg` | Prévia ao compartilhar cada texto | 1200 × 630 px |
-| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` (e `/favicon.ico`) | Ícone da aba e da tela inicial do celular: o símbolo em Garça sobre Mata, no corte para tamanho pequeno (traço engrossado, mesmo desenho) | quadrado |
+| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png` (e `/favicon.ico`) | Ícone da aba e da tela inicial do celular: o símbolo em Vazante sobre Rio à noite, no corte para tamanho pequeno (as cores da assinatura escura) | quadrado |
+| `marca/assinatura-horizontal.svg` | Cabeçalho de todas as páginas (versão papel: símbolo Vazante, texto Mata) | vetor, 280 px de largura na tela |
+| `marca/assinatura-vertical-escuro.svg` | Rodapé (versão escuro: símbolo Vazante, texto Garça, só sobre Rio à noite) | vetor, 180 px |
+| `marca/simbolo.svg` | O símbolo sozinho, em Vazante | vetor |
+| `marca/assinatura-email.png` | Logotipo das assinaturas de e-mail (carregado do site pelos programas de e-mail) | 400 × 59 px, fundo transparente |
 
 Regras para imagens novas:
 
-- Cor quente e natural, ou preto e branco. Nada de filtros frios ou saturados.
+- O site mostra todas as fotos em preto e branco (o CSS faz isso sozinho). Escolha fotos com bom contraste de luz e sombra: é o que sustenta a imagem sem cor.
 - JPG com qualidade entre 70 e 85, lado maior entre 1400 e 1800 px, abaixo de 350 KB.
 - Exporte sem metadados (EXIF). Foto de celular costuma guardar o lugar onde foi tirada; a verificação automática recusa foto com GPS.
 - Nome em minúsculas, sem acento e sem espaço: `edicao-02.jpg`, `precatorio-balanco.jpg`.
 - No HTML, sempre com `width`, `height` e um `alt` que descreva a imagem para quem não enxerga.
-- Para deixar em preto e branco, basta a classe `pb` no `<img>`.
-- Tratamento das fotos de edição: cor quente e levemente dessaturada, sombras puxadas para a tinta da marca (#1B2B29), luzes puxadas para o papel (#EFEAE6) e grão fino. Imagens internas podem ir em duotom: sombras na tinta, luzes no papel.
+- Fotos de abertura, capa, manifesto, autores e edições já saem em preto e branco. Em outra foto, use a classe `pb` no `<img>`. Gráficos e imagens de dados não levam `pb`.
+- Tratamento: nada de filtro de aplicativo, vinheta ou moldura. A foto é documento, não decoração.
 - Crédito do fotógrafo na legenda: `Foto: Nome / Unsplash`.

@@ -35,33 +35,28 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="fonts/newsreader-romano.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=5">
 </head>
 
 <body>
 
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- CABEÇALHO: igual em todas as páginas.
-       As orelhas (à esquerda e à direita do nome) mudam a cada edição. -->
+  <!-- CABEÇALHO: igual em todas as páginas. A assinatura oficial
+       fica em assets/marca/. O aria-current marca a página aberta. -->
   <header class="cabecalho">
     <div class="pagina cabecalho-topo">
-      <p class="orelha orelha-esquerda">Direito, patrimônio<br>e economia</p>
-      <a class="nome" href="index.html">
-        <span class="nome-marca">Couto &amp; Pedreira</span>
-        <span class="nome-descritor">Advocacia Consultiva</span>
-      </a>
-      <p class="orelha orelha-direita">Edição 01<br>Setembro de 2026</p>
+      <a class="marca" href="index.html"><img src="assets/marca/assinatura-horizontal.svg" width="280" height="41" alt="Couto &amp; Pedreira Advocacia Consultiva"></a>
+      <nav class="menu" aria-label="Principal">
+        <ul>
+          <li><a href="biblioteca.html">Biblioteca</a></li>
+          <li><a href="edicoes.html">Edições</a></li>
+          <li><a href="index.html#autores">Autores</a></li>
+          <li><a href="manifesto.html">Manifesto</a></li>
+          <li><a href="index.html#escritorio">Escritório</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav class="pagina menu" aria-label="Principal">
-      <ul>
-        <li><a href="biblioteca.html">Biblioteca</a></li>
-        <li><a href="edicoes.html">Edições</a></li>
-        <li><a href="index.html#autores">Autores</a></li>
-        <li><a href="manifesto.html">Manifesto</a></li>
-        <li><a href="index.html#escritorio">Escritório</a></li>
-      </ul>
-    </nav>
   </header>
 
   <main id="conteudo">
@@ -129,7 +124,10 @@
   <footer class="rodape">
     <div class="pagina">
 
-      <p class="rodape-frase">Entre o que está escrito e o que precisa ser feito, existe um mundo. É nele que trabalhamos.</p>
+      <div class="rodape-topo">
+        <p class="rodape-marca"><img src="assets/marca/assinatura-vertical-escuro.svg" width="180" height="80" alt="Couto &amp; Pedreira Advocacia Consultiva"></p>
+        <p class="rodape-frase">Entre o que está escrito e o que precisa ser feito, existe um mundo. É nele que trabalhamos.</p>
+      </div>
 
       <div class="expediente">
         <div>

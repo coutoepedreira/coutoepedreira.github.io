@@ -1,40 +1,25 @@
 /* ==========================================================================
-   COUTO & PEDREIRA · folha de estilo
-   Versão 4.4 · novembro de 2026
+   COUTO & PEDREIRA · ADVOCACIA CONSULTIVA
+   Folha de estilo do site · v5 · direção "Voz baixa"
 
-   Como ler este arquivo
-   ---------------------
-   Tudo o que define a aparência do site está aqui. As páginas HTML não
-   têm estilo embutido (nem atributos style="..."), de propósito: para
-   mudar uma cor, um tamanho ou um espaçamento, mude aqui, uma vez só.
+   O que é sério não precisa levantar a voz.
+   A identidade está na tipografia, no espaço em branco e no fio fino.
+   Não há formas, ornamentos nem cores novas: só a paleta original.
 
-   Os nomes das classes usam os termos de redação de jornal:
-   chapéu, linha fina, olho, fio, legenda, assinatura, expediente.
+   Garça (papel) · Rio à noite (tinta) · Mata (texto secundário)
+   Vazante (símbolo e detalhes) · Barranco (só em dados de gráficos)
 
    Índice
-   01. Fontes (servidas pelo próprio site)
-   02. Variáveis: cores, tipos, medidas
-   03. Base
-   04. Página, grade e trilho
-   05. Cabeçalho e menu
-   06. Rótulos, chapéus, fios e chamadas
-   07. Capa (a edição em destaque)
-   08. Seções da página inicial
-   09. Biblioteca: índice e formatos
-   10. Edições
-   11. Autores
-   12. Escritório
-   13. Abertura das páginas internas
-   14. Texto corrido (artigos, manifesto, metodologia, páginas legais)
-   15. Rodapé e expediente
-   16. Acessibilidade e utilitários
-   17. Telas largas (a partir de 1024 px e de 1280 px)
-   18. Página da edição
-   18.1 Página de análise
-   18.2 Análise longa e interpretação
-   18.3 Cifra sobre a foto
-   18.4 Texto justificado e autoria em dupla
-   19. Impressão
+   01 Fontes                 11 Abertura das páginas internas
+   02 Variáveis              12 Texto corrido
+   03 Base                   13 Rodapé e expediente
+   04 Página, grade, trilho  14 Acessibilidade e utilitários
+   05 Cabeçalho e menu       15 Telas médias e largas
+   06 Rótulos e chamadas     16 Componentes de edição e análise
+   07 Fotografia             17 Ajustes da direção sobre os componentes
+   08 Capa                   18 Impressão
+   09 Seções da inicial
+   10 Biblioteca e edições
    ========================================================================== */
 
 
@@ -77,48 +62,57 @@
    -------------------------------------------------------------------------- */
 
 :root {
-  /* Cores da marca (brand board). Contraste medido sobre o papel:
-     tinta 12,3:1 · verde 6,6:1 · terracota 5,4:1 · areia 2,5:1.
-     A areia não passa no teste para texto: use só em fundo escuro,
-     em fios ou em seleção. */
-  --papel: #EFEAE6;
-  --tinta: #1B2B29;
-  --verde: #37584D;
-  --terracota: #8E4E23;
-  --areia: #B68F67;
+  /* A paleta original. Contraste medido sobre a Garça:
+     Rio à noite 12,3:1 · Mata 6,6:1 · Barranco 5,4:1 · Vazante 2,5:1.
+     A Vazante não serve para texto sobre o papel: só no símbolo, em
+     fios e sobre o Rio à noite (5,0:1). */
+  --garca: #EFEAE6;
+  --rio: #1B2B29;
+  --mata: #37584D;
+  --vazante: #B68F67;
+  --barranco: #8E4E23;
+
+  /* Nomes antigos, mantidos para os componentes das seções 16 a 18. */
+  --papel: var(--garca);
+  --tinta: var(--rio);
+  --verde: var(--mata);
+  --terracota: var(--barranco);
+  --areia: var(--vazante);
 
   /* Derivadas */
-  --fio: rgba(27, 43, 41, 0.18);          /* fio fino entre blocos */
-  --fio-claro: rgba(239, 234, 230, 0.28); /* fio sobre o verde do rodapé */
-  --papel-80: rgba(239, 234, 230, 0.8);   /* texto secundário no rodapé: 4,9:1 */
-  --fundo-nota: rgba(27, 43, 41, 0.045);  /* caixa "Como citar" */
+  --fio: rgba(27, 43, 41, 0.16);          /* fio fino entre blocos */
+  --fio-claro: rgba(239, 234, 230, 0.2);  /* fio sobre o Rio à noite */
+  --papel-80: rgba(239, 234, 230, 0.8);   /* texto secundário no rodapé: 9,6:1 */
+  --fundo-nota: rgba(27, 43, 41, 0.04);   /* caixas discretas: exemplo, como citar */
 
   /* Famílias */
   --serifa: "Newsreader", Georgia, "Times New Roman", serif;
   --sans: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 
-  /* Escala tipográfica: quarta justa (4:3) a partir do texto de 21 px.
-     No celular os valores descem sozinhos (clamp) até o piso indicado.
-     21 → 28 → 37 → 50 → 66 → 88 → 118 */
-  --t-rotulo: 0.75rem;                                   /* 12 px */
-  --t-legenda: 1rem;                                     /* 16 px */
-  --t-nota: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);     /* 16 → 17 */
-  --t-texto: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem); /* 18 → 21 */
-  --t-linha-fina: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);  /* 20 → 24 */
-  --t-h3: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);        /* 22 → 28 */
-  --t-olho: clamp(1.625rem, 1.3rem + 1.3vw, 2.3125rem);    /* 26 → 37 */
-  --t-h2: clamp(2rem, 1.4rem + 2.4vw, 3.125rem);           /* 32 → 50 */
-  --t-h1: clamp(2.75rem, 1.6rem + 4.6vw, 5.5rem);          /* 44 → 88 */
-  --t-capa: clamp(3.25rem, 1.5rem + 6.2vw, 6.875rem);      /* 52 → 110 */
+  /* Pesos. Títulos leves, texto regular, rótulos em Montserrat média. */
+  --leve: 300;
+  --regular: 400;
+
+  /* Escala tipográfica. No celular os valores descem (clamp) até o piso. */
+  --t-rotulo: 0.75rem;                                       /* 12 px */
+  --t-legenda: 0.9375rem;                                    /* 15 px */
+  --t-nota: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);         /* 16 → 17 */
+  --t-texto: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);   /* 18 → 21 */
+  --t-linha-fina: clamp(1.25rem, 1.08rem + 0.7vw, 1.625rem); /* 20 → 26 */
+  --t-h3: clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem);         /* 22 → 30 */
+  --t-olho: clamp(1.625rem, 1.25rem + 1.5vw, 2.5rem);        /* 26 → 40 */
+  --t-h2: clamp(2.125rem, 1.4rem + 2.8vw, 3.75rem);          /* 34 → 60 */
+  --t-h1: clamp(2.75rem, 1.5rem + 5vw, 6rem);                /* 44 → 96 */
+  --t-capa: clamp(3rem, 1.4rem + 6.6vw, 7.5rem);             /* 48 → 120 */
 
   /* Medidas da página */
-  --margem: clamp(1.25rem, 4vw, 3rem);  /* margem lateral: 20 → 48 px */
-  --largura: 84rem;                      /* largura máxima do conteúdo: 1344 px */
-  --trilho: 17.5rem;                     /* coluna da margem (o trilho): 280 px */
-  --vao: clamp(1.25rem, 2.5vw, 2.5rem);  /* espaço entre colunas: 20 → 40 px */
-  --medida: 29em;                        /* linha de texto: cerca de 66 caracteres */
-  --glosa: 16rem;                        /* largura da glosa na margem direita */
-  --respiro: clamp(4.5rem, 9vw, 8.5rem); /* espaço entre seções: 72 → 136 px */
+  --margem: clamp(1.25rem, 5vw, 4.5rem);   /* margem lateral: 20 → 72 px */
+  --largura: 86rem;                         /* largura máxima: 1376 px */
+  --trilho: 16rem;                          /* coluna da margem: 256 px */
+  --vao: clamp(1.25rem, 3vw, 3rem);         /* entre colunas: 20 → 48 px */
+  --medida: 30em;                           /* linha de texto: cerca de 68 caracteres */
+  --glosa: 15rem;                           /* glosa na margem direita */
+  --respiro: clamp(5rem, 11vw, 10rem);      /* entre seções: 80 → 160 px */
 }
 
 
@@ -133,7 +127,7 @@
 }
 
 html {
-  background: var(--papel);
+  background: var(--garca);
   color-scheme: light;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -141,10 +135,11 @@ html {
 
 body {
   margin: 0;
-  background: var(--papel);
-  color: var(--tinta);
+  background: var(--garca);
+  color: var(--rio);
   font-family: var(--serifa);
   font-size: var(--t-texto);
+  font-weight: var(--regular);
   line-height: 1.6;
   font-kerning: normal;
   font-optical-sizing: auto;
@@ -168,7 +163,7 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-weight: 400;
+  font-weight: var(--leve);
   text-wrap: balance;
 }
 
@@ -186,7 +181,8 @@ ol {
 a {
   color: inherit;
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.22em;
+  transition: color 0.2s ease, border-color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
 strong,
@@ -195,22 +191,22 @@ b {
 }
 
 ::selection {
-  background: var(--areia);
-  color: var(--tinta);
+  background: rgba(182, 143, 103, 0.35);
+  color: var(--rio);
 }
 
 :focus-visible {
-  outline: 2px solid var(--terracota);
-  outline-offset: 3px;
+  outline: 1px solid var(--rio);
+  outline-offset: 4px;
 }
 
 
 /* --------------------------------------------------------------------------
    04. PÁGINA, GRADE E TRILHO
-   Toda a página se organiza em duas colunas: o trilho (a margem, à
-   esquerda) e o corpo. No trilho ficam os rótulos, datas, números e
-   glosas. No celular, o trilho vira uma linha acima do conteúdo.
-   As colunas só aparecem a partir de 1024 px (ver seção 17).
+   A página tem duas colunas: o trilho (a margem, à esquerda) e o corpo.
+   No trilho ficam o rótulo da seção, datas e notas. No celular, o trilho
+   vira uma linha acima do conteúdo. As colunas aparecem a partir de
+   1024 px (seção 15).
    -------------------------------------------------------------------------- */
 
 .pagina {
@@ -230,13 +226,13 @@ b {
   justify-content: space-between;
   align-items: baseline;
   gap: 0.5rem 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
 }
 
 .trilho-nota {
   font-size: var(--t-legenda);
   line-height: 1.45;
-  color: var(--verde);
+  color: var(--mata);
 }
 
 .corpo > :first-child {
@@ -246,149 +242,108 @@ b {
 
 /* --------------------------------------------------------------------------
    05. CABEÇALHO E MENU
+   A assinatura oficial à esquerda, o menu à direita, um fio embaixo.
    -------------------------------------------------------------------------- */
 
 .cabecalho-topo {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2.5rem;
   padding-block: 1.5rem 1.25rem;
+  border-bottom: 1px solid var(--fio);
 }
 
-/* Orelhas: os textos curtos ao lado do nome, como nas primeiras páginas
-   de jornal. Somem no celular e aparecem a partir de 1024 px. */
-.orelha {
-  display: none;
-  font-family: var(--sans);
-  font-size: var(--t-rotulo);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  line-height: 1.6;
-  text-transform: uppercase;
-  color: var(--verde);
-}
-
-/* O nome é escrito em caixa baixa no HTML e vira caixa alta aqui:
-   leitores de tela leem "Couto e Pedreira", e não letra por letra. */
-.nome {
+.marca {
   display: block;
-  color: var(--tinta);
-  text-align: center;
-  text-decoration: none;
+  flex: none;
 }
 
-.nome-marca {
-  display: block;
-  font-family: var(--sans);
-  font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3.25rem); /* 28 → 52 px */
-  font-weight: 600;
-  letter-spacing: -0.075em;
-  line-height: 0.9;
-  text-transform: uppercase;
-}
-
-/* Texto com espaçamento largo fica descentralizado, porque o espaço
-   extra entra também depois da última letra. O recuo à esquerda
-   (padding-left) igual ao espaçamento devolve o centro exato. */
-.nome-descritor {
-  display: block;
-  margin-top: 0.7rem;
-  padding-left: 0.32em;
-  font-family: var(--sans);
-  font-size: 0.6875rem; /* 11 px */
-  font-weight: 500;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--verde);
-}
-
-.menu {
-  border-block: 1px solid var(--fio);
+.marca img {
+  width: 15rem;   /* 240 px: o mínimo da assinatura horizontal */
+  height: auto;
 }
 
 .menu ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 0 1.5rem;
-  padding-block: 0.4rem;
+  gap: 0.35rem 1.5rem;
   list-style: none;
 }
 
 .menu a {
   display: inline-block;
-  padding-block: 0.55rem 0.45rem;
+  padding-block: 0.3rem;
   border-bottom: 1px solid transparent;
   font-family: var(--sans);
-  font-size: 0.6875rem; /* 11 px no celular, 12 px a partir de 1024 px */
+  font-size: var(--t-rotulo);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--tinta);
-  transition: color 0.2s ease, border-color 0.2s ease;
+  color: var(--rio);
 }
 
 .menu a:hover {
-  color: var(--terracota);
+  border-bottom-color: var(--rio);
 }
 
-/* Página atual: um fio terracota embaixo da palavra. */
 .menu a[aria-current="page"] {
-  border-bottom-color: var(--terracota);
+  border-bottom-color: var(--vazante);
 }
 
 
 /* --------------------------------------------------------------------------
-   06. RÓTULOS, CHAPÉUS, FIOS E CHAMADAS
+   06. RÓTULOS, CHAPÉUS, LINHAS FINAS E CHAMADAS
    -------------------------------------------------------------------------- */
 
-/* Rótulo: a etiqueta em caixa alta que abre cada bloco.
-   12 px é o menor tamanho de texto do site. */
 .rotulo,
 .chapeu {
   margin: 0;
   font-family: var(--sans);
   font-size: var(--t-rotulo);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   line-height: 1.5;
   text-transform: uppercase;
-  color: var(--verde);
+  color: var(--mata);
 }
 
-/* Número de edição: o único lugar onde a terracota vira texto grande. */
 .numero {
   font-family: var(--serifa);
   font-size: var(--t-h2);
+  font-weight: var(--leve);
   line-height: 1;
-  letter-spacing: -0.01em;
-  color: var(--terracota);
+  letter-spacing: -0.02em;
+  color: var(--rio);
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .titulo-secao {
   font-size: var(--t-h2);
   line-height: 1.04;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
-/* Linha fina: a frase que vem logo abaixo do título. */
 .linha-fina {
-  max-width: 32em;
+  max-width: 30em;
   margin-top: 1.25rem;
   font-size: var(--t-linha-fina);
-  line-height: 1.42;
+  font-weight: var(--leve);
+  line-height: 1.4;
 }
 
 .assinatura {
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   font-family: var(--sans);
   font-size: var(--t-rotulo);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   line-height: 1.6;
   text-transform: uppercase;
-  color: var(--tinta);
+  color: var(--rio);
 }
 
 .assinatura a {
@@ -397,176 +352,93 @@ b {
 }
 
 .assinatura a:hover {
-  border-bottom-color: var(--terracota);
+  border-bottom-color: var(--rio);
 }
 
-/* Chamada: o link que leva adiante ("Ler o manifesto"). */
+/* A chamada é um texto sublinhado. Sem seta, sem cor de destaque. */
 .chamada {
   display: inline-block;
-  margin-top: 2rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--terracota);
+  margin-top: 2.25rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rio);
   font-family: var(--sans);
   font-size: var(--t-rotulo);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   line-height: 1.5;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--tinta);
-  transition: color 0.2s ease;
+  color: var(--rio);
 }
 
 .chamada:hover {
-  color: var(--terracota);
+  color: var(--mata);
+  border-bottom-color: var(--mata);
 }
 
 .legenda {
-  margin-top: 0.75rem;
+  margin-top: 0.85rem;
   font-size: var(--t-legenda);
-  line-height: 1.45;
-  color: var(--verde);
-}
-
-/* Fotografias em preto e branco (retratos e arquitetura). */
-.pb {
-  filter: grayscale(1);
+  line-height: 1.5;
+  color: var(--mata);
 }
 
 
 /* --------------------------------------------------------------------------
-   07. CAPA
-   A capa é a única parte do site que não obedece ao trilho: capa de
-   revista quebra a grade das páginas de dentro.
+   07. FOTOGRAFIA
+   A foto é documento, não decoração: retangular, em preto e branco,
+   com legenda e crédito. Gráficos e imagens de dados não entram aqui.
+   -------------------------------------------------------------------------- */
+
+.pb,
+.capa-imagem img,
+.abertura-figura img,
+.manifesto-chamada img,
+.autor-foto img,
+.edicao-imagem img,
+.edicao-capa img,
+.sobre-autor img {
+  filter: grayscale(1) contrast(1.04);
+}
+
+
+/* --------------------------------------------------------------------------
+   08. CAPA
+   O texto mais recente, na página inicial. Título grande e leve à
+   esquerda, foto em pé à direita, alinhados pela base.
    -------------------------------------------------------------------------- */
 
 .capa {
   display: grid;
-  gap: 2rem;
-  padding-top: clamp(2rem, 5vw, 4rem);
-}
-
-.capa-topo {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-}
-
-.capa-topo .numero {
-  font-size: clamp(2.25rem, 1.6rem + 2.4vw, 3.75rem);
+  gap: 2.75rem;
+  padding-top: clamp(2.5rem, 7vw, 6.5rem);
 }
 
 .titulo-capa {
   margin-top: 1.5rem;
   font-size: var(--t-capa);
-  line-height: 0.96;
-  letter-spacing: -0.022em;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
 }
 
 .capa .linha-fina {
   max-width: 24em;
-}
-
-/* Na capa da página inicial o título divide espaço com a foto:
-   usa o tamanho de título de página (88 px), não o de capa (110 px). */
-.capa .titulo-capa {
-  font-size: var(--t-h1);
-  line-height: 0.98;
+  margin-top: 1.75rem;
 }
 
 .capa-status {
-  margin-top: 0.5rem;
-  color: var(--verde);
+  margin-top: 0.6rem;
 }
 
 .capa-imagem img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-}
-
-/* Capa sem foto: quando o texto da capa é uma análise, a "imagem" é o
-   número que ela defende, em barras. Feita só com HTML e CSS. */
-.capa-grafica-quadro {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto auto;
-  gap: clamp(1.5rem, 3.5vw, 2.5rem);
-  aspect-ratio: 1 / 1;
-  padding: clamp(1.5rem, 4vw, 3.25rem);
-  background: var(--tinta);
-  color: var(--papel);
-  text-decoration: none;
-}
-
-.cg-rotulo {
-  align-self: start;
-  max-width: 16em;
-  font-family: var(--serifa);
-  font-size: var(--t-linha-fina);
-  font-style: italic;
-  line-height: 1.3;
-  color: var(--papel);
-}
-
-.cg-linha {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  column-gap: 1rem;
-  row-gap: 0.7rem;
-}
-
-.cg-nome {
-  font-family: var(--sans);
-  font-size: var(--t-rotulo);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  line-height: 1.5;
-  text-transform: uppercase;
-}
-
-.cg-nome span {
-  display: block;
-  letter-spacing: 0.08em;
-  color: var(--papel-80);
-}
-
-.cg-valor {
-  font-size: var(--t-h2);
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-}
-
-.cg-trilha {
-  grid-column: 1 / -1;
-  position: relative;
-  height: 14px;
-  background: var(--fio-claro);
-  border-radius: 0 4px 4px 0;
-}
-
-.cg-barra {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 0 4px 4px 0;
-}
-
-.cg-barra-registro {
-  width: 12%;
-  background: var(--papel);
-}
-
-.cg-barra-sem {
-  width: 100%;
-  background: var(--areia);
 }
 
 
 /* --------------------------------------------------------------------------
-   08. SEÇÕES DA PÁGINA INICIAL
+   09. SEÇÕES DA PÁGINA INICIAL
    -------------------------------------------------------------------------- */
 
 .secao .linha-fina {
@@ -582,15 +454,15 @@ b {
   margin-top: 1rem;
 }
 
-/* Chamada do manifesto: imagem e frase lado a lado. */
+/* Manifesto: uma frase, uma foto. */
 .manifesto-chamada {
   display: grid;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .manifesto-chamada img {
   width: 100%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
 }
 
@@ -598,29 +470,133 @@ b {
   font-size: var(--t-h2);
   font-style: italic;
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .olho-secao span {
   display: block;
 }
 
+/* Autores */
+.autores {
+  display: grid;
+  gap: 4.5rem;
+  margin-top: 3.5rem;
+}
+
+.autor-foto {
+  max-width: 24rem;
+}
+
+.autor-foto img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.autor-nome {
+  margin-top: 1.75rem;
+  font-size: var(--t-h3);
+  line-height: 1.2;
+}
+
+.autor-nome strong {
+  font-weight: var(--regular);
+}
+
+.autor p {
+  max-width: var(--medida);
+  margin-top: 1rem;
+  font-size: var(--t-nota);
+  line-height: 1.6;
+}
+
+.autor .autor-inscricao {
+  margin-top: 0.5rem;
+  font-family: var(--sans);
+  font-size: var(--t-rotulo);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+  color: var(--mata);
+  font-variant-numeric: tabular-nums;
+}
+
+.autor .autor-escreve {
+  padding-top: 1rem;
+  border-top: 1px solid var(--fio);
+  font-style: italic;
+  color: var(--mata);
+}
+
+/* Escritório: as três frentes */
+.areas {
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--rio);
+  list-style: none;
+}
+
+.areas li {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: 0 1rem;
+  padding-block: 1.4rem 1.5rem;
+  border-bottom: 1px solid var(--fio);
+}
+
+.area-numero {
+  padding-top: 0.55rem;
+  font-family: var(--sans);
+  font-size: var(--t-rotulo);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--mata);
+  font-variant-numeric: tabular-nums;
+}
+
+.area-nome {
+  font-size: var(--t-h3);
+  line-height: 1.2;
+}
+
+.area-descricao {
+  max-width: var(--medida);
+  margin-top: 0.4rem;
+  font-size: var(--t-nota);
+  line-height: 1.55;
+}
+
+.glosa-secao {
+  margin-top: 2.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--fio);
+}
+
+.glosa-secao p:not(.rotulo) {
+  margin-top: 0.5rem;
+  font-size: var(--t-nota);
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--mata);
+}
+
 
 /* --------------------------------------------------------------------------
-   09. BIBLIOTECA: ÍNDICE E FORMATOS
+   10. BIBLIOTECA E EDIÇÕES
+   O índice é uma lista com fios: data, título, formato, autoria, leitura.
    -------------------------------------------------------------------------- */
 
-/* Formatos: a legenda da Biblioteca (Nota, Interpretação...). */
 .formatos {
-  margin-top: 2.5rem;
-  border-top: 1px solid var(--tinta);
+  margin-top: 3rem;
+  border-top: 1px solid var(--rio);
   list-style: none;
 }
 
 .formatos li {
   display: grid;
   gap: 0.35rem;
-  padding-block: 1.1rem 1.2rem;
+  padding-block: 1.25rem 1.35rem;
   border-bottom: 1px solid var(--fio);
 }
 
@@ -631,7 +607,7 @@ b {
 
 .formato-descricao {
   font-size: var(--t-nota);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .formato-medida {
@@ -641,21 +617,20 @@ b {
   letter-spacing: 0.1em;
   line-height: 1.5;
   text-transform: uppercase;
-  color: var(--verde);
+  color: var(--mata);
   font-variant-numeric: tabular-nums;
 }
 
 .formatos-nota {
   max-width: 36em;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   font-size: var(--t-legenda);
   line-height: 1.5;
-  color: var(--verde);
+  color: var(--mata);
 }
 
-/* Índice: a lista de textos publicados, do mais novo ao mais antigo. */
 .indice {
-  border-top: 1px solid var(--tinta);
+  border-top: 1px solid var(--rio);
   list-style: none;
 }
 
@@ -663,10 +638,15 @@ b {
   display: none;
 }
 
+/* Na página inicial, o índice vem logo depois da linha fina. */
+.indice--curto {
+  margin-top: 3rem;
+}
+
 .indice-item {
   display: grid;
-  gap: 0.4rem;
-  padding-block: 1.25rem 1.4rem;
+  gap: 0.45rem;
+  padding-block: 1.4rem 1.5rem;
   border-bottom: 1px solid var(--fio);
 }
 
@@ -680,22 +660,24 @@ b {
   letter-spacing: 0.1em;
   line-height: 1.5;
   text-transform: uppercase;
-  color: var(--verde);
+  color: var(--mata);
   font-variant-numeric: tabular-nums;
 }
 
 .indice-titulo {
   font-size: var(--t-h3);
+  font-weight: var(--leve);
   line-height: 1.18;
   text-decoration: none;
 }
 
 .indice-titulo:hover {
-  color: var(--terracota);
+  color: var(--mata);
 }
 
 .indice-linha-fina {
-  margin-top: 0.35rem;
+  max-width: 34em;
+  margin-top: 0.4rem;
   font-size: var(--t-nota);
   line-height: 1.5;
 }
@@ -706,24 +688,19 @@ b {
   font-size: var(--t-linha-fina);
   font-style: italic;
   line-height: 1.4;
-  color: var(--verde);
+  color: var(--mata);
 }
 
-
-/* --------------------------------------------------------------------------
-   10. EDIÇÕES
-   -------------------------------------------------------------------------- */
-
-/* Corpo da edição: texto e imagem. */
+/* Edições */
 .edicao-corpo {
   display: grid;
-  gap: 2.5rem;
+  gap: 2.75rem;
 }
 
 .edicao-titulo {
   font-size: var(--t-h1);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .edicao-corpo .ficha {
@@ -742,7 +719,7 @@ b {
 
 .sumario-lista {
   margin-top: 1rem;
-  border-top: 1px solid var(--tinta);
+  border-top: 1px solid var(--rio);
   list-style: none;
 }
 
@@ -755,137 +732,35 @@ b {
 
 .sumario-vazio {
   font-style: italic;
-  color: var(--verde);
+  color: var(--mata);
 }
 
 
 /* --------------------------------------------------------------------------
-   11. AUTORES
-   -------------------------------------------------------------------------- */
-
-.autores {
-  display: grid;
-  gap: 4rem;
-  margin-top: 3rem;
-}
-
-.autor-foto img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center 20%;
-}
-
-.autor-nome {
-  margin-top: 1.5rem;
-  font-size: var(--t-h3);
-  line-height: 1.2;
-}
-
-/* O nome em peso 500, o resto em regular, como no site de Lenio Streck. */
-.autor-nome strong {
-  font-weight: 500;
-}
-
-.autor p {
-  max-width: var(--medida);
-  margin-top: 1rem;
-  font-size: var(--t-nota);
-  line-height: 1.55;
-}
-
-/* Inscrição na OAB, logo abaixo do nome (Código de Ética, art. 44). */
-.autor .autor-inscricao {
-  margin-top: 0.4rem;
-  font-family: var(--sans);
-  font-size: var(--t-rotulo);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  line-height: 1.5;
-  color: var(--verde);
-  font-variant-numeric: tabular-nums;
-}
-
-.autor .autor-escreve {
-  padding-top: 1rem;
-  border-top: 1px solid var(--fio);
-  font-style: italic;
-  color: var(--verde);
-}
-
-
-/* --------------------------------------------------------------------------
-   12. ESCRITÓRIO
-   -------------------------------------------------------------------------- */
-
-.areas {
-  margin-top: 3rem;
-  border-top: 1px solid var(--tinta);
-  list-style: none;
-}
-
-.areas li {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  gap: 0 1rem;
-  padding-block: 1.25rem 1.4rem;
-  border-bottom: 1px solid var(--fio);
-}
-
-.area-numero {
-  padding-top: 0.45rem;
-  font-family: var(--sans);
-  font-size: var(--t-rotulo);
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  color: var(--terracota);
-  font-variant-numeric: tabular-nums;
-}
-
-.area-nome {
-  font-size: var(--t-h3);
-  line-height: 1.2;
-}
-
-.area-descricao {
-  max-width: var(--medida);
-  margin-top: 0.4rem;
-  font-size: var(--t-nota);
-  line-height: 1.5;
-}
-
-/* Glosa de seção: a nota que fica no trilho, embaixo do rótulo. */
-.glosa-secao {
-  margin-top: 2.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--fio);
-}
-
-.glosa-secao p:not(.rotulo) {
-  margin-top: 0.5rem;
-  font-size: var(--t-nota);
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--verde);
-}
-
-
-/* --------------------------------------------------------------------------
-   13. ABERTURA DAS PÁGINAS INTERNAS
+   11. ABERTURA DAS PÁGINAS INTERNAS
    -------------------------------------------------------------------------- */
 
 .abertura {
-  padding-top: clamp(2.5rem, 6vw, 5.5rem);
+  padding-top: clamp(2.5rem, 7vw, 6.5rem);
 }
 
 .abertura h1 {
   font-size: var(--t-h1);
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+}
+
+.abertura .chapeu + h1 {
+  margin-top: 1.25rem;
+}
+
+.abertura .linha-fina {
+  max-width: 26em;
+  margin-top: 1.5rem;
 }
 
 .abertura-figura {
-  margin-top: 2.5rem;
+  margin-top: 2.75rem;
 }
 
 .abertura-figura img {
@@ -893,7 +768,7 @@ b {
 }
 
 .abertura--retrato .abertura-figura img {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
 }
 
@@ -904,13 +779,11 @@ b {
 
 
 /* --------------------------------------------------------------------------
-   14. TEXTO CORRIDO
-   Usado nos artigos da Biblioteca, no Manifesto, na Metodologia e nas
-   páginas legais. A linha tem no máximo 29 em (cerca de 66 caracteres).
+   12. TEXTO CORRIDO
    -------------------------------------------------------------------------- */
 
 .texto {
-  margin-top: clamp(3rem, 6vw, 5rem);
+  margin-top: clamp(3rem, 7vw, 5.5rem);
 }
 
 .texto-corpo {
@@ -935,12 +808,13 @@ b {
   position: relative;
   margin-top: 2.6em;
   font-size: var(--t-h3);
-  line-height: 1.2;
-  letter-spacing: -0.005em;
+  font-weight: var(--regular);
+  line-height: 1.22;
+  letter-spacing: -0.008em;
 }
 
 .texto-corpo h2 + * {
-  margin-top: 0.7em;
+  margin-top: 0.75em;
 }
 
 .texto-corpo h3 {
@@ -948,17 +822,17 @@ b {
   font-family: var(--sans);
   font-size: var(--t-rotulo);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--verde);
+  color: var(--mata);
 }
 
-/* Números de seção: no celular ficam antes do título;
-   em tela larga, penduram na margem (ver seção 17). */
+/* O número da seção: leve, no Mata, na margem do texto. */
 .texto-corpo h2 .num {
-  margin-right: 0.4em;
-  color: var(--terracota);
-  font-variant-numeric: tabular-nums;
+  margin-right: 0.5em;
+  font-weight: var(--leve);
+  color: var(--mata);
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .texto-corpo ul,
@@ -971,34 +845,36 @@ b {
 }
 
 .texto-corpo a {
-  text-decoration-color: var(--terracota);
+  text-decoration-color: rgba(27, 43, 41, 0.35);
 }
 
 .texto-corpo a:hover {
-  color: var(--terracota);
+  color: var(--mata);
+  text-decoration-color: var(--mata);
 }
 
-/* A tese, em uma frase: o manual pede tese cedo. */
 .tese {
   padding-top: 1rem;
-  border-top: 2px solid var(--terracota);
+  border-top: 1px solid var(--rio);
 }
 
 .tese p:not(.rotulo) {
   margin-top: 0.5rem;
   font-size: var(--t-linha-fina);
+  font-weight: var(--leve);
   line-height: 1.4;
 }
 
-/* Olho: a frase destacada no meio do texto. */
+/* Olho: a frase que merece ser lida duas vezes. Um fio em cima, nada mais. */
 .olho {
-  margin-block: 2.2em;
+  margin-block: 1.6em;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--tinta);
+  border-top: 1px solid var(--rio);
   font-size: var(--t-olho);
   font-style: italic;
+  font-weight: var(--leve);
   line-height: 1.2;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
   hyphens: manual;
   text-wrap: balance;
 }
@@ -1007,21 +883,19 @@ b {
   display: block;
 }
 
-/* O olho que abre o texto não precisa de espaço acima. */
 .texto-corpo > .olho:first-child {
   margin-top: 0;
 }
 
-/* Citação: trecho de lei, decisão ou doutrina, com a fonte embaixo. */
 .citacao {
   margin: 2em 0;
   padding-left: 1.25rem;
-  border-left: 1px solid var(--tinta);
+  border-left: 1px solid var(--rio);
 }
 
 .citacao p {
   font-size: var(--t-nota);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .citacao footer {
@@ -1032,18 +906,16 @@ b {
   letter-spacing: 0.1em;
   line-height: 1.5;
   text-transform: uppercase;
-  color: var(--verde);
+  color: var(--mata);
 }
 
-/* Glosa: a nota de margem. No código, fica ANTES do parágrafo que
-   comenta. No celular aparece no fluxo do texto; em tela larga
-   (a partir de 1280 px) vai para a margem direita (ver seção 17). */
+/* Glosa: a nota na margem. */
 .glosa {
   padding: 0.9rem 0 0;
   border-top: 1px solid var(--fio);
   font-size: var(--t-legenda);
-  line-height: 1.5;
-  color: var(--verde);
+  line-height: 1.55;
+  color: var(--mata);
 }
 
 .glosa .rotulo {
@@ -1066,7 +938,7 @@ b {
   font-size: var(--t-legenda);
   font-style: italic;
   line-height: 1.5;
-  color: var(--verde);
+  color: var(--mata);
 }
 
 .assinatura-final {
@@ -1077,17 +949,15 @@ b {
 .referencias {
   margin-top: 3.5em;
   padding-top: 1rem;
-  border-top: 1px solid var(--tinta);
+  border-top: 1px solid var(--rio);
 }
 
-/* Rótulos de "Referências" e "Como citar": pequenos, sem o espaço dos
-   intertítulos do texto. */
 .texto-corpo .referencias h2,
 .texto-corpo .como-citar h2 {
   margin-top: 0;
   font-size: var(--t-rotulo);
   line-height: 1.5;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
 }
 
 .referencias ul {
@@ -1098,7 +968,7 @@ b {
 
 .referencias li {
   font-size: var(--t-legenda);
-  line-height: 1.5;
+  line-height: 1.55;
   hyphens: manual;
   overflow-wrap: anywhere;
 }
@@ -1117,11 +987,10 @@ b {
 .como-citar p:not(.rotulo) {
   margin-top: 0.6rem;
   font-size: var(--t-legenda);
-  line-height: 1.5;
+  line-height: 1.55;
   overflow-wrap: anywhere;
 }
 
-/* Ficha técnica no trilho do texto: formato, data, leitura. */
 .ficha {
   display: flex;
   flex-wrap: wrap;
@@ -1131,17 +1000,17 @@ b {
 
 .ficha div {
   display: grid;
-  gap: 0.1rem;
+  gap: 0.15rem;
 }
 
 .ficha dt {
   font-family: var(--sans);
   font-size: var(--t-rotulo);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   line-height: 1.5;
   text-transform: uppercase;
-  color: var(--verde);
+  color: var(--mata);
 }
 
 .ficha dd {
@@ -1150,52 +1019,65 @@ b {
   line-height: 1.45;
 }
 
+
 /* --------------------------------------------------------------------------
-   15. RODAPÉ E EXPEDIENTE
-   O rodapé é a contracapa: verde da marca com texto em papel (6,6:1).
+   13. RODAPÉ E EXPEDIENTE
+   A contracapa: Rio à noite, a assinatura vertical e o expediente.
    -------------------------------------------------------------------------- */
 
 .rodape {
   margin-top: var(--respiro);
-  padding-block: clamp(3.5rem, 7vw, 6rem) 2rem;
-  background: var(--verde);
-  color: var(--papel);
+  padding-block: clamp(3.5rem, 8vw, 6.5rem) 2rem;
+  background: var(--rio);
+  color: var(--garca);
 }
 
 .rodape a {
-  color: var(--papel);
+  color: inherit;
   text-decoration: none;
+  border-bottom: 1px solid transparent;
 }
 
 .rodape a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--areia);
+  border-bottom-color: var(--vazante);
 }
 
 .rodape :focus-visible {
-  outline-color: var(--papel);
+  outline-color: var(--vazante);
+}
+
+.rodape-marca img {
+  width: 11.25rem;   /* 180 px */
+  height: auto;
 }
 
 .rodape-frase {
-  max-width: 17em;
-  margin: 0;
-  font-size: clamp(1.75rem, 1.2rem + 2.4vw, 3.25rem);
+  max-width: 21em;
+  margin-top: 2.75rem;
+  font-size: var(--t-olho);
   font-style: italic;
-  line-height: 1.12;
+  font-weight: var(--leve);
+  line-height: 1.22;
   letter-spacing: -0.01em;
 }
 
 .expediente {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem 1.5rem;
-  margin-top: clamp(3rem, 6vw, 5rem);
-  padding-top: 1.25rem;
+  gap: 2.25rem;
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--fio-claro);
 }
 
 .expediente .rotulo {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+  color: var(--vazante);
+}
+
+.expediente p,
+.expediente li {
+  font-size: var(--t-legenda);
+  line-height: 1.6;
   color: var(--papel-80);
 }
 
@@ -1203,25 +1085,16 @@ b {
   list-style: none;
 }
 
-.expediente li,
-.expediente p:not(.rotulo) {
-  font-size: var(--t-legenda);
-  line-height: 1.6;
-}
-
-/* Inscrições na OAB: o nome e, embaixo, o número. */
-.expediente .inscricao {
+.expediente p + p {
   margin-top: 0.75rem;
 }
 
-.expediente .inscricao span {
+.inscricao span {
   display: block;
   font-family: var(--sans);
   font-size: var(--t-rotulo);
   font-weight: 500;
-  letter-spacing: 0.12em;
-  line-height: 1.6;
-  color: var(--papel-80);
+  letter-spacing: 0.1em;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1230,21 +1103,21 @@ b {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.5rem 2rem;
-  margin-top: 3rem;
-  padding-top: 1rem;
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--fio-claro);
   font-family: var(--sans);
-  font-size: var(--t-rotulo);
+  font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
-  line-height: 1.5;
+  letter-spacing: 0.14em;
+  line-height: 1.6;
   text-transform: uppercase;
   color: var(--papel-80);
 }
 
 
 /* --------------------------------------------------------------------------
-   16. ACESSIBILIDADE E UTILITÁRIOS
+   14. ACESSIBILIDADE E UTILITÁRIOS
    -------------------------------------------------------------------------- */
 
 .pular {
@@ -1253,8 +1126,8 @@ b {
   left: 0.75rem;
   z-index: 10;
   padding: 0.6rem 0.9rem;
-  background: var(--tinta);
-  color: var(--papel);
+  background: var(--rio);
+  color: var(--garca);
   font-family: var(--sans);
   font-size: var(--t-rotulo);
   font-weight: 500;
@@ -1286,10 +1159,9 @@ b {
 
 
 /* --------------------------------------------------------------------------
-   17. TELAS MÉDIAS E LARGAS
+   15. TELAS MÉDIAS E LARGAS
    -------------------------------------------------------------------------- */
 
-/* A partir de 640 px: formatos e autores ganham colunas. */
 @media (min-width: 40em) {
   .formatos li {
     grid-template-columns: 11rem minmax(0, 1fr);
@@ -1307,44 +1179,27 @@ b {
   }
 
   .expediente {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .menu ul {
-    gap: 0 2rem;
+    gap: 0.35rem 2rem;
   }
 }
 
-/* A partir de 1024 px: o trilho aparece como coluna. */
 @media (min-width: 64em) {
-  .orelha {
-    display: block;
-  }
-
   .cabecalho-topo {
-    grid-template-columns: 1fr auto 1fr;
-    align-items: end;
-    padding-block: 2rem 1.5rem;
+    padding-block: 2.25rem 1.75rem;
   }
 
-  .orelha-esquerda {
-    justify-self: start;
-  }
-
-  .orelha-direita {
-    justify-self: end;
-    text-align: right;
-  }
-
-  .menu a {
-    font-size: var(--t-rotulo);
+  .marca img {
+    width: 17.5rem;   /* 280 px */
   }
 
   .menu ul {
-    gap: 0 2.75rem;
+    gap: 0 2.5rem;
   }
 
-  /* A grade de duas colunas: trilho + corpo. */
   .secao,
   .abertura,
   .texto {
@@ -1375,7 +1230,6 @@ b {
     grid-column: 2;
   }
 
-  /* Glosa de seção: embaixo do rótulo, no trilho. */
   .secao {
     grid-template-rows: auto 1fr;
   }
@@ -1392,13 +1246,12 @@ b {
     grid-column: 1;
     grid-row: 2;
     align-self: start;
-    max-width: 15rem;
+    max-width: 14rem;
   }
 
-  /* Capa: texto à esquerda, imagem à direita, em duas metades. */
   .capa {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: var(--vao);
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: calc(2 * var(--vao));
     align-items: stretch;
   }
 
@@ -1406,7 +1259,7 @@ b {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom: 2.25rem;
+    padding-bottom: 0.25rem;
   }
 
   .titulo-capa {
@@ -1414,10 +1267,9 @@ b {
   }
 
   .capa-texto > :last-child {
-    padding-top: 2rem;
+    padding-top: 2.5rem;
   }
 
-  /* Formatos: nome à esquerda, descrição e medida à direita. */
   .formatos li {
     grid-template-columns: 12rem minmax(0, 1fr);
   }
@@ -1439,29 +1291,45 @@ b {
     text-align: right;
   }
 
-  /* Chamada do manifesto: imagem estreita, frase larga. */
   .manifesto-chamada {
-    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-    column-gap: var(--vao);
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    column-gap: calc(2 * var(--vao));
     align-items: end;
   }
 
-  /* Edição: número no trilho, texto e imagem no corpo. */
-  .edicao-corpo {
-    grid-column: 2;
+  .expediente {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: var(--vao);
+  }
+
+  .rodape-topo {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: var(--trilho) minmax(0, 1fr);
     column-gap: var(--vao);
     align-items: start;
   }
 
-  .edicao-trilho .numero {
-    font-size: clamp(4rem, 2rem + 4vw, 7.5rem);
+  .rodape-frase {
+    margin-top: 0;
   }
 
-  /* Aberturas: foto em pé à direita do título. */
+  .edicao-corpo {
+    grid-column: 2;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: calc(2 * var(--vao));
+    align-items: start;
+  }
+
+  .edicao-trilho .numero {
+    font-size: clamp(4rem, 2rem + 4vw, 7rem);
+  }
+
   .abertura--retrato {
-    grid-template-columns: var(--trilho) minmax(0, 1fr) minmax(0, 24rem);
+    grid-template-columns: var(--trilho) minmax(0, 1fr) minmax(0, 22rem);
+  }
+
+  .abertura--retrato h1 {
+    font-size: clamp(2.75rem, 1.5rem + 4vw, 5rem);
   }
 
   .abertura--retrato .abertura-figura {
@@ -1478,16 +1346,15 @@ b {
     aspect-ratio: 21 / 9;
   }
 
-  /* Números de seção penduram na margem esquerda do texto. */
+  /* No desktop, o número da seção sai para a margem do texto. */
   .texto-corpo h2 .num {
     position: absolute;
     right: 100%;
+    top: 0;
     margin-right: 1.25rem;
   }
 }
 
-/* A partir de 1280 px: há espaço para a glosa na margem direita e para
-   o olho avançar sobre ela. */
 @media (min-width: 80em) {
   .texto-corpo .glosa {
     float: right;
@@ -1508,7 +1375,6 @@ b {
     margin-right: calc(-1 * (var(--glosa) + var(--vao)));
   }
 
-  /* Formatos em três colunas: nome, descrição, medida. */
   .formatos li {
     grid-template-columns: 12rem minmax(0, 1fr) auto;
   }
@@ -1522,7 +1388,8 @@ b {
 
 
 /* --------------------------------------------------------------------------
-   18. PÁGINA DA EDIÇÃO
+   16. COMPONENTES DE EDIÇÃO E ANÁLISE (herdados da v4.4)
+   PÁGINA DA EDIÇÃO
    Cada edição é uma página única, em /edicoes/. Usa a mesma grade do
    texto corrido (seção 14) e acrescenta as peças de reportagem:
    capitular, número em destaque, tabela, gráfico, cadeia, mapa de
@@ -2212,7 +2079,7 @@ html {
 
 
 /* --------------------------------------------------------------------------
-   18.1 PÁGINA DE ANÁLISE
+   16.1 PÁGINA DE ANÁLISE
    Usa a grade da página da edição (seção 18) e acrescenta a figura de
    abertura em barras, o resumo, as perguntas e as conclusões numeradas,
    a tabela com grupos e as referências separadas por tipo.
@@ -2461,7 +2328,7 @@ html {
 
 
 /* --------------------------------------------------------------------------
-   18.2 ANÁLISE LONGA E INTERPRETAÇÃO
+   16.2 ANÁLISE LONGA E INTERPRETAÇÃO
    Textos escritos em marcação simples (build.py, rodada de 19 out. 2026):
    figuras de abertura tipográficas, caixas de exemplo, citação longa e
    capas da página inicial feitas só de letra.
@@ -2706,7 +2573,7 @@ html {
 
 
 /* --------------------------------------------------------------------------
-   18.3 CIFRA SOBRE A FOTO
+   16.3 CIFRA SOBRE A FOTO
    Nas aberturas dos textos (nunca nas fotos institucionais): a aba com o
    formato, como nas chamadas do Instagram, e o número que resume o texto,
    com uma linha que diz o que ele é. Tudo é texto de verdade sobre a foto:
@@ -2809,7 +2676,7 @@ html {
 }
 
 /* --------------------------------------------------------------------------
-   18.4 TEXTO JUSTIFICADO E AUTORIA EM DUPLA
+   16.4 TEXTO JUSTIFICADO E AUTORIA EM DUPLA
    Estreados no ensaio "O casamento começa antes do altar" (novembro de 2026).
 
    Texto justificado: acrescente a classe "justificado" ao
@@ -2868,8 +2735,155 @@ html {
 }
 
 
+
+
 /* --------------------------------------------------------------------------
-   19. IMPRESSÃO
+   17. AJUSTES DA DIREÇÃO SOBRE OS COMPONENTES
+   A seção 16 veio da versão anterior. Aqui ela recebe a voz baixa:
+   a cifra sai de cima da foto e vira legenda, os números e marcadores
+   passam ao Mata, e o Barranco fica só nos dados dos gráficos.
+   -------------------------------------------------------------------------- */
+
+/* A foto com cifra: a foto fica limpa; a cifra desce para a legenda. */
+.foto-cifra {
+  overflow: visible;
+  container-type: normal;
+  background: none;
+}
+
+.foto-cifra::after {
+  content: none;
+}
+
+.foto-cifra img {
+  filter: grayscale(1) contrast(1.04);
+}
+
+.fc-aba {
+  display: none;
+}
+
+.fc-sobre {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0.85rem 0 0;
+  color: var(--rio);
+}
+
+.fc-cifra,
+.fc-cifra--meio,
+.fc-cifra--media,
+.fc-cifra--longa {
+  display: inline;
+  font-family: var(--serifa);
+  font-size: 1.625rem;
+  font-weight: var(--leve);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.fc-nota {
+  display: inline;
+  max-width: none;
+  margin: 0;
+  font-family: var(--sans);
+  font-size: var(--t-rotulo);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--mata);
+}
+
+.foto-cifra + .legenda {
+  margin-top: 0.35rem;
+}
+
+/* Edição: o número grande, leve, na tinta. */
+.edicao-trilho .numero {
+  color: var(--rio);
+}
+
+/* Títulos de abertura das páginas de texto: leves. */
+.edicao-pagina .abertura h1 {
+  font-weight: var(--leve);
+  letter-spacing: -0.025em;
+}
+
+.edicao-pagina .abertura .linha-fina {
+  font-weight: var(--leve);
+}
+
+/* Marcadores, números e realces de interface: Mata. */
+.conclusoes li::before,
+.lista-numerada li::before,
+.cadeia li::before,
+.sumario-edicao li span,
+.tabela-editorial .tabela-grupo th {
+  color: var(--mata);
+}
+
+.sumario-edicao a:hover,
+.capa-link:hover {
+  color: var(--mata);
+}
+
+.capa-link {
+  text-decoration: none;
+}
+
+.tese,
+.em-aberto,
+.texto-corpo .exemplo {
+  border-top: 1px solid var(--rio);
+}
+
+/* A capitular: leve, como os títulos. */
+.abre::first-letter {
+  font-weight: var(--leve);
+  color: var(--rio);
+}
+
+/* O ponto final do texto: um quadrado pequeno, na tinta. */
+.fim::after {
+  width: 0.45em;
+  height: 0.45em;
+  background: var(--rio);
+}
+
+/* Passos e cifras de abertura: títulos leves. */
+.ap-verbo,
+.ag-valor,
+.ac-numero,
+.cm-cifra,
+.numero-destaque-valor {
+  font-weight: var(--leve);
+}
+
+.abertura-passos li:last-child .ap-verbo {
+  font-weight: var(--regular);
+}
+
+.ag-barra-registro {
+  background: var(--rio);
+}
+
+/* Sumário lateral: o fio em cima e o rótulo, como o resto do trilho. */
+.sumario-lateral {
+  border-top-color: var(--fio);
+}
+
+.sobre-autor {
+  border-top-color: var(--fio);
+}
+
+
+/* --------------------------------------------------------------------------
+   18. IMPRESSÃO
    Advogado imprime. Os textos saem limpos: sem menu, sem rodapé, com
    o endereço dos links entre parênteses.
    -------------------------------------------------------------------------- */
@@ -2888,7 +2902,6 @@ html {
   }
 
   .menu,
-  .orelha,
   .pular,
   .chamada,
   .rodape,
@@ -2907,8 +2920,8 @@ html {
     border-bottom: 0.5pt solid #000;
   }
 
-  .nome-marca {
-    font-size: 16pt;
+  .marca img {
+    width: 52mm;   /* a assinatura no alto da folha, como num papel timbrado */
   }
 
   .abertura,
